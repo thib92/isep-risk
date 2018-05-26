@@ -1,5 +1,10 @@
 import org.newdawn.slick.AppGameContainer;
+import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
+
+import javax.sound.sampled.*;
+import java.io.File;
+import java.io.IOException;
 
 public class Main {
 
