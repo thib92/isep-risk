@@ -12,8 +12,8 @@ public class Main {
 
 
         try {
-            AppGameContainer app = new AppGameContainer(new Partie("Risk"));
-            app.setDisplayMode(Partie.WIDTH,Partie.HEIGHT, false);
+            AppGameContainer app = new AppGameContainer(new Jeu("Risk"));
+            app.setDisplayMode(Jeu.WIDTH,Jeu.HEIGHT, false);
             //app.setFullscreen(true); // Mettre en full screen (retirer la ligne au dessus)
             int maxFPS = 60;
             app.setTargetFrameRate(maxFPS);

@@ -1,6 +1,10 @@
 public class Joueur {
 
 
+    public Joueur(){
+
+    }
+
     private String pseudo;
 
     public Joueur(String pseudo) {
