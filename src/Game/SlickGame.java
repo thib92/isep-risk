@@ -1,11 +1,12 @@
 package Game;
 
 import Graphics.Drawable;
+import Views.Map;
 import Views.Menu;
 import Views.PlayerSelection;
 import org.newdawn.slick.*;
 
-public class Game extends BasicGame implements Drawable {
+public class SlickGame extends BasicGame implements Drawable {
 
     public static int WIDTH = 1600;
     public static int HEIGHT = 900;
@@ -15,14 +16,16 @@ public class Game extends BasicGame implements Drawable {
     /* SCREENS */
     private Menu menu;
     private PlayerSelection playerSelection;
+    private Map map;
 
-    public Game(String title) {
+    public SlickGame(String title) {
         super(title);
         this.screen = GameScreen.MENU;
 
         /* SCREENS */
         this.menu = new Menu();
         this.playerSelection = new PlayerSelection();
+        this.map = new Map();
     }
 
     @Override
@@ -40,6 +43,9 @@ public class Game extends BasicGame implements Drawable {
             case PLAYER_SELECTION:
                 this.playerSelection.init(gameContainer);
                 break;
+            case MAP:
+                this.map.init(gameContainer);
+                break;
         }
     }
 
@@ -52,6 +58,9 @@ public class Game extends BasicGame implements Drawable {
                 break;
             case PLAYER_SELECTION:
                 this.playerSelection.update(gameContainer, i);
+                break;
+            case MAP:
+                this.map.update(gameContainer, i);
                 break;
         }
     }
@@ -67,6 +76,9 @@ public class Game extends BasicGame implements Drawable {
             case PLAYER_SELECTION:
                 this.playerSelection.render(gameContainer, graphics);
                 break;
+            case MAP:
+                this.map.render(gameContainer, graphics);
+                break;
         }
     }
 
@@ -80,6 +92,9 @@ public class Game extends BasicGame implements Drawable {
             } catch (SlickException e) {
                 e.printStackTrace();
             }
+        }
+        else if(this.screen.equals(GameScreen.PLAYER_SELECTION) && key == Input.KEY_ENTER){
+            this.screen = GameScreen.MAP;
         }
     }
 }

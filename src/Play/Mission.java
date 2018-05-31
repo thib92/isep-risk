@@ -1,3 +1,5 @@
+package Play;
+
 public class Mission {
 
     private String objective;

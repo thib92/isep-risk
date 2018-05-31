@@ -374,7 +374,8 @@ Method in class org.newdawn.slick.util.pathfinding.<A HREF="./org/newdawn/slick/
  application.<DT><A HREF="./org/newdawn/slick/AppGameContainer.html#AppGameContainer(org.newdawn.slick.Game)"><B>AppGameContainer(Game.Game)</B></A> -
 Constructor for class org.newdawn.slick.<A HREF="./org/newdawn/slick/AppGameContainer.html" title="class in org.newdawn.slick">AppGameContainer</A>
 <DD>Create a new container wrapping a game
-<DT><A HREF="./org/newdawn/slick/AppGameContainer.html#AppGameContainer(org.newdawn.slick.Game, int, int, boolean)"><B>AppGameContainer(Game.Game, int, int, boolean)</B></A> -
+<DT><A HREF="./org/newdawn/slick/AppGameContainer.html#AppGameContainer(org.newdawn.slick.Game, int, int, boolean)"><B>AppGameContainer(Game.SlickGame,
+    int, int, boolean)</B></A> -
 Constructor for class org.newdawn.slick.<A HREF="./org/newdawn/slick/AppGameContainer.html" title="class in org.newdawn.slick">AppGameContainer</A>
 <DD>Create a new container wrapping a game
 <DT><A HREF="./org/newdawn/slick/AppletGameContainer.html" title="class in org.newdawn.slick"><B>AppletGameContainer</B></A> - Class in <A HREF="./org/newdawn/slick/package-summary.html">org.newdawn.slick</A><DD>A game container that displays the game as an applet.<DT><A HREF="./org/newdawn/slick/AppletGameContainer.html#AppletGameContainer()"><B>AppletGameContainer()</B></A> - 
@@ -613,7 +614,8 @@ Constructor for class org.newdawn.slick.tests.<A HREF="./org/newdawn/slick/tests
 <DT><A HREF="./org/newdawn/slick/CanvasGameContainer.html" title="class in org.newdawn.slick"><B>CanvasGameContainer</B></A> - Class in <A HREF="./org/newdawn/slick/package-summary.html">org.newdawn.slick</A><DD>A game container that displays the game on an AWT Canvas.<DT><A HREF="./org/newdawn/slick/CanvasGameContainer.html#CanvasGameContainer(org.newdawn.slick.Game)"><B>CanvasGameContainer(Game.Game)</B></A> -
 Constructor for class org.newdawn.slick.<A HREF="./org/newdawn/slick/CanvasGameContainer.html" title="class in org.newdawn.slick">CanvasGameContainer</A>
 <DD>Create a new panel
-<DT><A HREF="./org/newdawn/slick/CanvasGameContainer.html#CanvasGameContainer(org.newdawn.slick.Game, boolean)"><B>CanvasGameContainer(Game.Game, boolean)</B></A> -
+<DT><A HREF="./org/newdawn/slick/CanvasGameContainer.html#CanvasGameContainer(org.newdawn.slick.Game, boolean)"><B>CanvasGameContainer(Game.SlickGame,
+    boolean)</B></A> -
 Constructor for class org.newdawn.slick.<A HREF="./org/newdawn/slick/CanvasGameContainer.html" title="class in org.newdawn.slick">CanvasGameContainer</A>
 <DD>Create a new panel
 <DT><A HREF="./org/newdawn/slick/tests/CanvasSizeTest.html" title="class in org.newdawn.slick.tests"><B>CanvasSizeTest</B></A> - Class in <A HREF="./org/newdawn/slick/tests/package-summary.html">org.newdawn.slick.tests</A><DD>Quick test to confirm canvas size is reported correctly<DT><A HREF="./org/newdawn/slick/tests/CanvasSizeTest.html#CanvasSizeTest()"><B>CanvasSizeTest()</B></A> - 
@@ -737,7 +739,7 @@ Method in class org.newdawn.slick.geom.<A HREF="./org/newdawn/slick/geom/Shape.h
 Method in class org.newdawn.slick.<A HREF="./org/newdawn/slick/BasicGame.html" title="class in org.newdawn.slick">BasicGame</A>
 <DD>&nbsp;
 <DT><A HREF="./org/newdawn/slick/Game.html#closeRequested()"><B>closeRequested()</B></A> - 
-Method in interface org.newdawn.slick.<A HREF="./org/newdawn/slick/Game.html" title="interface in org.newdawn.slick">Game.Game</A>
+Method in interface org.newdawn.slick.<A HREF="./org/newdawn/slick/Game.html" title="interface in org.newdawn.slick">Game.SlickGame</A>
 <DD>Notification that a game close has been requested
 <DT><A HREF="./org/newdawn/slick/ScalableGame.html#closeRequested()"><B>closeRequested()</B></A> - 
 Method in class org.newdawn.slick.<A HREF="./org/newdawn/slick/ScalableGame.html" title="class in org.newdawn.slick">ScalableGame</A>
@@ -2271,7 +2273,7 @@ Variable in class org.newdawn.slick.<A HREF="./org/newdawn/slick/Color.html" tit
 <DT><A HREF="./org/newdawn/slick/CanvasGameContainer.html#game"><B>game</B></A> - 
 Variable in class org.newdawn.slick.<A HREF="./org/newdawn/slick/CanvasGameContainer.html" title="class in org.newdawn.slick">CanvasGameContainer</A>
 <DD>The game being held in this container
-<DT><A HREF="./org/newdawn/slick/Game.html" title="interface in org.newdawn.slick"><B>Game.Game</B></A> - Interface in <A HREF="./org/newdawn/slick/package-summary.html">org.newdawn.slick</A><DD>The main game interface that should be implemented by any game being developed
+<DT><A HREF="./org/newdawn/slick/Game.html" title="interface in org.newdawn.slick"><B>Game.SlickGame</B></A> - Interface in <A HREF="./org/newdawn/slick/package-summary.html">org.newdawn.slick</A><DD>The main game interface that should be implemented by any game being developed
  using the container system.<DT><A HREF="./org/newdawn/slick/GameContainer.html#game"><B>game</B></A> - 
 Variable in class org.newdawn.slick.<A HREF="./org/newdawn/slick/GameContainer.html" title="class in org.newdawn.slick">GameContainer</A>
 <DD>The game being managed
@@ -3828,7 +3830,7 @@ Method in interface org.newdawn.slick.gui.<A HREF="./org/newdawn/slick/gui/GUICo
 Method in class org.newdawn.slick.<A HREF="./org/newdawn/slick/BasicGame.html" title="class in org.newdawn.slick">BasicGame</A>
 <DD>&nbsp;
 <DT><A HREF="./org/newdawn/slick/Game.html#getTitle()"><B>getTitle()</B></A> - 
-Method in interface org.newdawn.slick.<A HREF="./org/newdawn/slick/Game.html" title="interface in org.newdawn.slick">Game.Game</A>
+Method in interface org.newdawn.slick.<A HREF="./org/newdawn/slick/Game.html" title="interface in org.newdawn.slick">Game.SlickGame</A>
 <DD>Get the title of this game
 <DT><A HREF="./org/newdawn/slick/ScalableGame.html#getTitle()"><B>getTitle()</B></A> - 
 Method in class org.newdawn.slick.<A HREF="./org/newdawn/slick/ScalableGame.html" title="class in org.newdawn.slick">ScalableGame</A>
@@ -5108,7 +5110,7 @@ Method in class org.newdawn.slick.<A HREF="./org/newdawn/slick/AppletGameContain
 Method in class org.newdawn.slick.<A HREF="./org/newdawn/slick/BasicGame.html" title="class in org.newdawn.slick">BasicGame</A>
 <DD>&nbsp;
 <DT><A HREF="./org/newdawn/slick/Game.html#init(org.newdawn.slick.GameContainer)"><B>init(GameContainer)</B></A> - 
-Method in interface org.newdawn.slick.<A HREF="./org/newdawn/slick/Game.html" title="interface in org.newdawn.slick">Game.Game</A>
+Method in interface org.newdawn.slick.<A HREF="./org/newdawn/slick/Game.html" title="interface in org.newdawn.slick">Game.SlickGame</A>
 <DD>Initialise the game.
 <DT><A HREF="./org/newdawn/slick/Image.html#init()"><B>init()</B></A> - 
 Method in class org.newdawn.slick.<A HREF="./org/newdawn/slick/Image.html" title="class in org.newdawn.slick">Image</A>
@@ -8041,7 +8043,7 @@ Static method in class org.newdawn.slick.util.<A HREF="./org/newdawn/slick/util/
 Method in class org.newdawn.slick.<A HREF="./org/newdawn/slick/CachedRender.html" title="class in org.newdawn.slick">CachedRender</A>
 <DD>Render the cached operations.
 <DT><A HREF="./org/newdawn/slick/Game.html#render(org.newdawn.slick.GameContainer, org.newdawn.slick.Graphics)"><B>render(GameContainer, Graphics)</B></A> - 
-Method in interface org.newdawn.slick.<A HREF="./org/newdawn/slick/Game.html" title="interface in org.newdawn.slick">Game.Game</A>
+Method in interface org.newdawn.slick.<A HREF="./org/newdawn/slick/Game.html" title="interface in org.newdawn.slick">Game.SlickGame</A>
 <DD>Render the game's screen here.
 <DT><A HREF="./org/newdawn/slick/gui/AbstractComponent.html#render(org.newdawn.slick.gui.GUIContext, org.newdawn.slick.Graphics)"><B>render(GUIContext, Graphics)</B></A> - 
 Method in class org.newdawn.slick.gui.<A HREF="./org/newdawn/slick/gui/AbstractComponent.html" title="class in org.newdawn.slick.gui">AbstractComponent</A>
@@ -8267,8 +8269,8 @@ Method in class org.newdawn.slick.tests.<A HREF="./org/newdawn/slick/tests/TestB
 <DD>&nbsp;
 <DT><A HREF="./org/newdawn/slick/tests/TestUtils.html#render()"><B>render()</B></A> - 
 Method in class org.newdawn.slick.tests.<A HREF="./org/newdawn/slick/tests/TestUtils.html" title="class in org.newdawn.slick.tests">TestUtils</A>
-<DD>Game.Game loop render
-<DT><A HREF="./org/newdawn/slick/tests/TexturePaintTest.html#render(org.newdawn.slick.GameContainer, org.newdawn.slick.Graphics)"><B>render(GameContainer, Graphics)</B></A> - 
+<DD>Game.SlickGame loop render
+    <DT><A HREF="./org/newdawn/slick/tests/TexturePaintTest.html#render(org.newdawn.slick.GameContainer, org.newdawn.slick.Graphics)"><B>render(GameContainer, Graphics)</B></A> -
 Method in class org.newdawn.slick.tests.<A HREF="./org/newdawn/slick/tests/TexturePaintTest.html" title="class in org.newdawn.slick.tests">TexturePaintTest</A>
 <DD>&nbsp;
 <DT><A HREF="./org/newdawn/slick/tests/TileMapTest.html#render(org.newdawn.slick.GameContainer, org.newdawn.slick.Graphics)"><B>render(GameContainer, Graphics)</B></A> - 
@@ -8443,7 +8445,8 @@ Constructor for class org.newdawn.slick.geom.<A HREF="./org/newdawn/slick/geom/R
 <DT><A HREF="./org/newdawn/slick/geom/RoundedRectangle.html#RoundedRectangle(float, float, float, float, float, int, int)"><B>RoundedRectangle(float, float, float, float, float, int, int)</B></A> - 
 Constructor for class org.newdawn.slick.geom.<A HREF="./org/newdawn/slick/geom/RoundedRectangle.html" title="class in org.newdawn.slick.geom">RoundedRectangle</A>
 <DD>Construct a rectangle with rounded corners.
-<DT><A HREF="./org/newdawn/slick/util/Bootstrap.html#runAsApplication(org.newdawn.slick.Game, int, int, boolean)"><B>runAsApplication(Game.Game, int, int, boolean)</B></A> -
+<DT><A HREF="./org/newdawn/slick/util/Bootstrap.html#runAsApplication(org.newdawn.slick.Game, int, int, boolean)"><B>runAsApplication(Game.SlickGame,
+    int, int, boolean)</B></A> -
 Static method in class org.newdawn.slick.util.<A HREF="./org/newdawn/slick/util/Bootstrap.html" title="class in org.newdawn.slick.util">Bootstrap</A>
 <DD>Start the game as an application
 <DT><A HREF="./org/newdawn/slick/AppletGameContainer.Container.html#runloop()"><B>runloop()</B></A> - 
@@ -8513,10 +8516,12 @@ Method in interface org.newdawn.slick.imageout.<A HREF="./org/newdawn/slick/imag
 <DT><A HREF="./org/newdawn/slick/imageout/TGAWriter.html#saveImage(org.newdawn.slick.Image, java.lang.String, java.io.OutputStream, boolean)"><B>saveImage(Image, String, OutputStream, boolean)</B></A> - 
 Method in class org.newdawn.slick.imageout.<A HREF="./org/newdawn/slick/imageout/TGAWriter.html" title="class in org.newdawn.slick.imageout">TGAWriter</A>
 <DD>&nbsp;
-<DT><A HREF="./org/newdawn/slick/ScalableGame.html" title="class in org.newdawn.slick"><B>ScalableGame</B></A> - Class in <A HREF="./org/newdawn/slick/package-summary.html">org.newdawn.slick</A><DD>A wrapper to allow any game to be scalable.<DT><A HREF="./org/newdawn/slick/ScalableGame.html#ScalableGame(org.newdawn.slick.Game, int, int)"><B>ScalableGame(Game.Game, int, int)</B></A> -
+<DT><A HREF="./org/newdawn/slick/ScalableGame.html" title="class in org.newdawn.slick"><B>ScalableGame</B></A> - Class in <A HREF="./org/newdawn/slick/package-summary.html">org.newdawn.slick</A><DD>A wrapper to allow any game to be scalable.<DT><A HREF="./org/newdawn/slick/ScalableGame.html#ScalableGame(org.newdawn.slick.Game, int, int)"><B>ScalableGame(Game.SlickGame,
+    int, int)</B></A> -
 Constructor for class org.newdawn.slick.<A HREF="./org/newdawn/slick/ScalableGame.html" title="class in org.newdawn.slick">ScalableGame</A>
 <DD>Create a new scalable game wrapper
-<DT><A HREF="./org/newdawn/slick/ScalableGame.html#ScalableGame(org.newdawn.slick.Game, int, int, boolean)"><B>ScalableGame(Game.Game, int, int, boolean)</B></A> -
+<DT><A HREF="./org/newdawn/slick/ScalableGame.html#ScalableGame(org.newdawn.slick.Game, int, int, boolean)"><B>ScalableGame(Game.SlickGame,
+    int, int, boolean)</B></A> -
 Constructor for class org.newdawn.slick.<A HREF="./org/newdawn/slick/ScalableGame.html" title="class in org.newdawn.slick">ScalableGame</A>
 <DD>Create a new scalable game wrapper
 <DT><A HREF="./org/newdawn/slick/tests/ScalableTest.html" title="class in org.newdawn.slick.tests"><B>ScalableTest</B></A> - Class in <A HREF="./org/newdawn/slick/tests/package-summary.html">org.newdawn.slick.tests</A><DD>A test for a scalable game<DT><A HREF="./org/newdawn/slick/tests/ScalableTest.html#ScalableTest()"><B>ScalableTest()</B></A> - 
@@ -10261,7 +10266,7 @@ Method in class org.newdawn.slick.<A HREF="./org/newdawn/slick/Animation.html" t
 Method in class org.newdawn.slick.<A HREF="./org/newdawn/slick/BasicGame.html" title="class in org.newdawn.slick">BasicGame</A>
 <DD>&nbsp;
 <DT><A HREF="./org/newdawn/slick/Game.html#update(org.newdawn.slick.GameContainer, int)"><B>update(GameContainer, int)</B></A> - 
-Method in interface org.newdawn.slick.<A HREF="./org/newdawn/slick/Game.html" title="interface in org.newdawn.slick">Game.Game</A>
+Method in interface org.newdawn.slick.<A HREF="./org/newdawn/slick/Game.html" title="interface in org.newdawn.slick">Game.SlickGame</A>
 <DD>Update the game logic here.
 <DT><A HREF="./org/newdawn/slick/openal/AudioLoader.html#update()"><B>update()</B></A> - 
 Static method in class org.newdawn.slick.openal.<A HREF="./org/newdawn/slick/openal/AudioLoader.html" title="class in org.newdawn.slick.openal">AudioLoader</A>
@@ -10516,8 +10521,8 @@ Method in class org.newdawn.slick.tests.<A HREF="./org/newdawn/slick/tests/TestB
 <DD>&nbsp;
 <DT><A HREF="./org/newdawn/slick/tests/TestUtils.html#update()"><B>update()</B></A> - 
 Method in class org.newdawn.slick.tests.<A HREF="./org/newdawn/slick/tests/TestUtils.html" title="class in org.newdawn.slick.tests">TestUtils</A>
-<DD>Game.Game loop update
-<DT><A HREF="./org/newdawn/slick/tests/TexturePaintTest.html#update(org.newdawn.slick.GameContainer, int)"><B>update(GameContainer, int)</B></A> - 
+<DD>Game.SlickGame loop update
+    <DT><A HREF="./org/newdawn/slick/tests/TexturePaintTest.html#update(org.newdawn.slick.GameContainer, int)"><B>update(GameContainer, int)</B></A> -
 Method in class org.newdawn.slick.tests.<A HREF="./org/newdawn/slick/tests/TexturePaintTest.html" title="class in org.newdawn.slick.tests">TexturePaintTest</A>
 <DD>&nbsp;
 <DT><A HREF="./org/newdawn/slick/tests/TileMapTest.html#update(org.newdawn.slick.GameContainer, int)"><B>update(GameContainer, int)</B></A> - 

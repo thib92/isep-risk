@@ -97,7 +97,7 @@ java.lang.Object
       <IMG SRC="../../../../resources/inherit.gif" ALT="extended by "><B>org.newdawn.slick.tests.NavMeshTest</B>
 </PRE>
 <DL>
-<DT><B>All Implemented Interfaces:</B> <DD><A HREF="../../../../org/newdawn/slick/ControlledInputReciever.html" title="interface in org.newdawn.slick">ControlledInputReciever</A>, <A HREF="../../../../org/newdawn/slick/ControllerListener.html" title="interface in org.newdawn.slick">ControllerListener</A>, <A HREF="../../../../org/newdawn/slick/Game.html" title="interface in org.newdawn.slick">Game.Game</A>, <A HREF="../../../../org/newdawn/slick/InputListener.html" title="interface in org.newdawn.slick">InputListener</A>, <A HREF="../../../../org/newdawn/slick/KeyListener.html" title="interface in org.newdawn.slick">KeyListener</A>, <A HREF="../../../../org/newdawn/slick/MouseListener.html" title="interface in org.newdawn.slick">MouseListener</A>, <A HREF="../../../../org/newdawn/slick/util/pathfinding/PathFindingContext.html" title="interface in org.newdawn.slick.util.pathfinding">PathFindingContext</A></DD>
+<DT><B>All Implemented Interfaces:</B> <DD><A HREF="../../../../org/newdawn/slick/ControlledInputReciever.html" title="interface in org.newdawn.slick">ControlledInputReciever</A>, <A HREF="../../../../org/newdawn/slick/ControllerListener.html" title="interface in org.newdawn.slick">ControllerListener</A>, <A HREF="../../../../org/newdawn/slick/Game.html" title="interface in org.newdawn.slick">Game.SlickGame</A>, <A HREF="../../../../org/newdawn/slick/InputListener.html" title="interface in org.newdawn.slick">InputListener</A>, <A HREF="../../../../org/newdawn/slick/KeyListener.html" title="interface in org.newdawn.slick">KeyListener</A>, <A HREF="../../../../org/newdawn/slick/MouseListener.html" title="interface in org.newdawn.slick">MouseListener</A>, <A HREF="../../../../org/newdawn/slick/util/pathfinding/PathFindingContext.html" title="interface in org.newdawn.slick.util.pathfinding">PathFindingContext</A></DD>
 </DL>
 <HR>
 <DL>
@@ -295,7 +295,7 @@ public void <B>init</B>(<A HREF="../../../../org/newdawn/slick/GameContainer.htm
 <DD>Initialise resources and the map data
 <P>
 <DD><DL>
-<DT><B>Specified by:</B><DD><CODE><A HREF="../../../../org/newdawn/slick/Game.html#init(org.newdawn.slick.GameContainer)">init</A></CODE> in interface <CODE><A HREF="../../../../org/newdawn/slick/Game.html" title="interface in org.newdawn.slick">Game.Game</A></CODE><DT><B>Specified by:</B><DD><CODE><A HREF="../../../../org/newdawn/slick/BasicGame.html#init(org.newdawn.slick.GameContainer)">init</A></CODE> in class <CODE><A HREF="../../../../org/newdawn/slick/BasicGame.html" title="class in org.newdawn.slick">BasicGame</A></CODE></DL>
+<DT><B>Specified by:</B><DD><CODE><A HREF="../../../../org/newdawn/slick/Game.html#init(org.newdawn.slick.GameContainer)">init</A></CODE> in interface <CODE><A HREF="../../../../org/newdawn/slick/Game.html" title="interface in org.newdawn.slick">Game.SlickGame</A></CODE><DT><B>Specified by:</B><DD><CODE><A HREF="../../../../org/newdawn/slick/BasicGame.html#init(org.newdawn.slick.GameContainer)">init</A></CODE> in class <CODE><A HREF="../../../../org/newdawn/slick/BasicGame.html" title="class in org.newdawn.slick">BasicGame</A></CODE></DL>
 </DD>
 <DD><DL>
 <DT><B>Parameters:</B><DD><CODE>container</CODE> - the container the game is running in
@@ -315,7 +315,7 @@ public void <B>update</B>(<A HREF="../../../../org/newdawn/slick/GameContainer.h
 <DD>Update data map etc
 <P>
 <DD><DL>
-<DT><B>Specified by:</B><DD><CODE><A HREF="../../../../org/newdawn/slick/Game.html#update(org.newdawn.slick.GameContainer, int)">update</A></CODE> in interface <CODE><A HREF="../../../../org/newdawn/slick/Game.html" title="interface in org.newdawn.slick">Game.Game</A></CODE><DT><B>Specified by:</B><DD><CODE><A HREF="../../../../org/newdawn/slick/BasicGame.html#update(org.newdawn.slick.GameContainer, int)">update</A></CODE> in class <CODE><A HREF="../../../../org/newdawn/slick/BasicGame.html" title="class in org.newdawn.slick">BasicGame</A></CODE></DL>
+<DT><B>Specified by:</B><DD><CODE><A HREF="../../../../org/newdawn/slick/Game.html#update(org.newdawn.slick.GameContainer, int)">update</A></CODE> in interface <CODE><A HREF="../../../../org/newdawn/slick/Game.html" title="interface in org.newdawn.slick">Game.SlickGame</A></CODE><DT><B>Specified by:</B><DD><CODE><A HREF="../../../../org/newdawn/slick/BasicGame.html#update(org.newdawn.slick.GameContainer, int)">update</A></CODE> in class <CODE><A HREF="../../../../org/newdawn/slick/BasicGame.html" title="class in org.newdawn.slick">BasicGame</A></CODE></DL>
 </DD>
 <DD><DL>
 <DT><B>Parameters:</B><DD><CODE>container</CODE> - The container holing this game<DD><CODE>delta</CODE> - The amount of time thats passed since last update in milliseconds
@@ -335,7 +335,7 @@ public void <B>render</B>(<A HREF="../../../../org/newdawn/slick/GameContainer.h
 <DD>Render the game - in this case render the map and diagnostic data
 <P>
 <DD><DL>
-<DT><B>Specified by:</B><DD><CODE><A HREF="../../../../org/newdawn/slick/Game.html#render(org.newdawn.slick.GameContainer, org.newdawn.slick.Graphics)">render</A></CODE> in interface <CODE><A HREF="../../../../org/newdawn/slick/Game.html" title="interface in org.newdawn.slick">Game.Game</A></CODE></DL>
+<DT><B>Specified by:</B><DD><CODE><A HREF="../../../../org/newdawn/slick/Game.html#render(org.newdawn.slick.GameContainer, org.newdawn.slick.Graphics)">render</A></CODE> in interface <CODE><A HREF="../../../../org/newdawn/slick/Game.html" title="interface in org.newdawn.slick">Game.SlickGame</A></CODE></DL>
 </DD>
 <DD><DL>
 <DT><B>Parameters:</B><DD><CODE>container</CODE> - The container we're running the game in<DD><CODE>g</CODE> - The graphics context on which to render

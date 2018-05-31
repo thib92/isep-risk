@@ -11,6 +11,7 @@ public class Menu implements Drawable {
 
     private Sound sound;
     private Image bgImage;
+    private Image logoImage;
 
     @Override
     public void init(GameContainer gameContainer) throws SlickException {
@@ -18,6 +19,7 @@ public class Menu implements Drawable {
             this.sound = new Sound("sons/acceuil.ogg");
             this.sound.loop();
             this.bgImage = new Image("images/bg_menu.jpg");
+            this.logoImage = new Image("images/logo.png");
         } catch (SlickException e) {
             e.printStackTrace();
         }
@@ -43,9 +45,10 @@ public class Menu implements Drawable {
     @Override
     public void render(GameContainer gameContainer, Graphics graphics) throws SlickException {
         graphics.drawImage(this.bgImage, -100, 0);
+        graphics.drawImage(this.logoImage, 200, 200 );
 
         graphics.setColor(new Color(0,0,0, this.transparence));
-        graphics.fillRect(550, 800, 465, 32);
+        graphics.fillRect(570, 800, 465, 32);
 
         graphics.setColor(new Color(255,255,255, this.transparence));
         GraphicsUtils.drawCenteredText("Appuyez sur Entrer pour jouer", graphics, 800);

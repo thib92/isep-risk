@@ -1,3 +1,7 @@
+package Play;
+
+import Play.Player;
+
 import java.util.ArrayList;
 
 public class Game {
