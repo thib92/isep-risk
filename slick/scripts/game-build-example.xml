@@ -61,7 +61,7 @@
 </target>
 
 <!--
- Upload the Game demo to the Slick website
+ Upload the Game.Game demo to the Slick website
 -->
 <target name="upload-game-webstart" depends="build-game-webstart">
 	<input message="Upload password:" addproperty="password"/>

@@ -1,11 +1,14 @@
+package Game;
+
+import Graphics.Drawable;
 import Views.Menu;
 import Views.PlayerSelection;
 import org.newdawn.slick.*;
 
-public class Game extends BasicGame {
+public class Game extends BasicGame implements Drawable {
 
-    static int WIDTH = 1600;
-    static int HEIGHT = 900;
+    public static int WIDTH = 1600;
+    public static int HEIGHT = 900;
 
     private GameScreen screen;
 
@@ -13,7 +16,7 @@ public class Game extends BasicGame {
     private Menu menu;
     private PlayerSelection playerSelection;
 
-    Game(String title) {
+    public Game(String title) {
         super(title);
         this.screen = GameScreen.MENU;
 
@@ -24,6 +27,12 @@ public class Game extends BasicGame {
 
     @Override
     public void init(GameContainer gameContainer) throws SlickException {
+        gameContainer.setDefaultFont(
+                new TrueTypeFont(
+                        new java.awt.Font("Helvetica", java.awt.Font.BOLD, 32),
+                        true
+                )
+        );
         switch (this.screen) {
             case MENU:
                 this.menu.init(gameContainer);
@@ -50,6 +59,7 @@ public class Game extends BasicGame {
 
     @Override
     public void render(GameContainer gameContainer, Graphics graphics) throws SlickException {
+        graphics.setFont(gameContainer.getDefaultFont());
         switch (this.screen) {
             case MENU:
                 this.menu.render(gameContainer, graphics);

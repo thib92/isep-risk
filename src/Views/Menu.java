@@ -1,6 +1,7 @@
 package Views;
 
 import Graphics.Drawable;
+import Utils.GraphicsUtils;
 import org.newdawn.slick.*;
 
 public class Menu implements Drawable {
@@ -10,7 +11,6 @@ public class Menu implements Drawable {
 
     private Sound sound;
     private Image bgImage;
-    private TrueTypeFont font;
 
     @Override
     public void init(GameContainer gameContainer) throws SlickException {
@@ -18,7 +18,6 @@ public class Menu implements Drawable {
             this.sound = new Sound("sons/acceuil.ogg");
             this.sound.loop();
             this.bgImage = new Image("images/bg_menu.jpg");
-            this.font = new TrueTypeFont(new java.awt.Font("Helvetica", java.awt.Font.BOLD, 32), true);
         } catch (SlickException e) {
             e.printStackTrace();
         }
@@ -44,13 +43,11 @@ public class Menu implements Drawable {
     @Override
     public void render(GameContainer gameContainer, Graphics graphics) throws SlickException {
         graphics.drawImage(this.bgImage, -100, 0);
-        graphics.setColor(Color.white);
 
-        graphics.setColor(new Color(0,0,0,this.transparence));
+        graphics.setColor(new Color(0,0,0, this.transparence));
         graphics.fillRect(550, 800, 465, 32);
 
-        graphics.setColor(new Color(255,255,255,this.transparence));
-        graphics.setFont(this.font);
-        graphics.drawString("Appuyer sur Entrer pour jouer",550, 800);
+        graphics.setColor(new Color(255,255,255, this.transparence));
+        GraphicsUtils.drawCenteredText("Appuyez sur Entrer pour jouer", graphics, 800);
     }
 }

@@ -155,7 +155,7 @@ public class TestUtils {
 	}
 	
 	/**
-	 * Game loop update
+	 * Game.Game loop update
 	 */
 	public void update() {
 		while (Keyboard.next()) {
@@ -191,7 +191,7 @@ public class TestUtils {
 	}
 
 	/**
-	 * Game loop render
+	 * Game.Game loop render
 	 */
 	public void render() {
 		Color.white.bind();

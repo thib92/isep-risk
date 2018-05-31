@@ -1,6 +1,8 @@
 package Views;
 
 import Graphics.Drawable;
+import Utils.GraphicsUtils;
+import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.SlickException;
@@ -19,6 +21,7 @@ public class PlayerSelection implements Drawable {
 
     @Override
     public void render(GameContainer gameContainer, Graphics graphics) throws SlickException {
-        graphics.drawString("Sélection des joueurs",550, 800);
+        graphics.setColor(Color.white);
+        GraphicsUtils.drawCenteredText("Sélection des joueurs", graphics, 800);
     }
 }
