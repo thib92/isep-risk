@@ -1,19 +1,16 @@
 public class Mission {
 
+    private String objective;
 
-    private String objectif;
-
-
-    public Mission(String objectif) {
-        this.objectif = objectif;
+    public Mission(String objective) {
+        this.objective = objective;
     }
 
-
-    public String getObjectif() {
-        return objectif;
+    public String getObjective() {
+        return objective;
     }
 
-    public void setObjectif(String objectif) {
-        this.objectif = objectif;
+    public void setObjective(String objective) {
+        this.objective = objective;
     }
 }

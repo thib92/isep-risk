@@ -1,13 +1,13 @@
-public class Joueur {
+public class Player {
 
 
-    public Joueur(){
+    public Player(){
 
     }
 
     private String pseudo;
 
-    public Joueur(String pseudo) {
+    public Player(String pseudo) {
         this.pseudo = pseudo;
     }
 

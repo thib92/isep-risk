@@ -1,10 +1,10 @@
-public class Territoire {
+package Geography;
 
+public class Region {
 
     private String nom;
 
-
-    public Territoire(String nom) {
+    public Region(String nom) {
         this.nom = nom;
     }
 

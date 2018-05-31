@@ -1,10 +1,5 @@
 import org.newdawn.slick.AppGameContainer;
-import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
-
-import javax.sound.sampled.*;
-import java.io.File;
-import java.io.IOException;
 
 public class Main {
 
@@ -12,9 +7,8 @@ public class Main {
 
 
         try {
-            AppGameContainer app = new AppGameContainer(new Jeu("Risk"));
-            app.setDisplayMode(Jeu.WIDTH,Jeu.HEIGHT, false);
-            //app.setFullscreen(true); // Mettre en full screen (retirer la ligne au dessus)
+            AppGameContainer app = new AppGameContainer(new Game("Risk"));
+            app.setDisplayMode(Game.WIDTH, Game.HEIGHT, false);
             int maxFPS = 60;
             app.setTargetFrameRate(maxFPS);
             app.setShowFPS(true);
