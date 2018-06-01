@@ -1,13 +1,11 @@
 package Play;
 
-import Play.Player;
-
 import java.util.ArrayList;
 
 public class Game {
 
 
-    ArrayList<Player> players = new ArrayList<>();
+    private ArrayList<Player> players = new ArrayList<>();
 
     public Game(){
 

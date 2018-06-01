@@ -30,8 +30,8 @@ public class PlayerSelection implements Drawable {
     @Override
     public void init(GameContainer gameContainer) throws SlickException {
 
-        playerCountString = "2";
-        currentPlayerCount = 2;
+        this.playerCountString = "2";
+        this.currentPlayerCount = 2;
 
     }
 
@@ -40,46 +40,45 @@ public class PlayerSelection implements Drawable {
     public void update(GameContainer gameContainer, int i) throws SlickException {
 
 
-        input = gameContainer.getInput();
+        this.input = gameContainer.getInput();
 
-        if(input.isMousePressed(Input.MOUSE_LEFT_BUTTON)) {
+        if(this.input.isMousePressed(Input.MOUSE_LEFT_BUTTON)) {
 
-            int x = input.getMouseX();
-            int y = input.getMouseY();
+            int x = this.input.getMouseX();
+            int y = this.input.getMouseY();
 
-            currentPlayerCount = Integer.parseInt(playerCountString);
+            this.currentPlayerCount = Integer.parseInt(playerCountString);
 
             if (x > 400 && x < 500 && y > 400 && y < 500) {
 
-                if (currentPlayerCount > 2 ) {
-                    playerCountString = String.valueOf(Integer.parseInt(playerCountString) - 1);
+                if (this.currentPlayerCount > 2 ) {
+                    this.playerCountString = String.valueOf(Integer.parseInt(playerCountString) - 1);
                 }
 
             }
             else if(x > 1100 && x < 1200 && y > 400 && y < 500) {
 
-                if (currentPlayerCount < 6) {
-                    playerCountString = String.valueOf(Integer.parseInt(playerCountString) + 1);
+                if (this.currentPlayerCount < 6) {
+                    this.playerCountString = String.valueOf(Integer.parseInt(this.playerCountString) + 1);
 
                 }
             }
         }
 
-        if (input.isKeyPressed(Input.KEY_ENTER)){
+        if (this.input.isKeyPressed(Input.KEY_ENTER)){
 
-            currentPlayerCount = Integer.parseInt(playerCountString);
+            this.currentPlayerCount = Integer.parseInt(this.playerCountString);
 
             ArrayList<Player> players = new ArrayList<>();
 
-            for (int it = 1; it <= currentPlayerCount; it++){
+            for (int it = 1; it <= this.currentPlayerCount; it++){
 
-                String pseudo = "Joueur"+it;
+                String pseudo = "Joueur " + it;
                 Player player = new Player(pseudo);
                 players.add(player);
-
             }
 
-            game.setPlayers(players);
+            this.game.setPlayers(players);
         }
 
 
