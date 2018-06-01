@@ -1,4 +1,4 @@
-package Troupes;
+package Troups;
 
 import Utils.PowerRange;
 

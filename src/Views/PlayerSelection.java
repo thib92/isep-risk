@@ -9,6 +9,9 @@ import org.newdawn.slick.SlickException;
 
 public class PlayerSelection implements Drawable {
 
+    private int humanAccount = 0;
+    private int botAccount = 0;
+
     @Override
     public void init(GameContainer gameContainer) throws SlickException {
 
