@@ -23,16 +23,16 @@ public class SlickGame extends BasicGame implements Drawable {
     public SlickGame(String title) {
         super(title);
         this.screen = GameScreen.MENU;
+        this.game = new Game();
 
         /* SCREENS */
         this.menu = new Menu();
         this.playerSelection = new PlayerSelection(this.getGame());
         this.map = new Map();
-        this.game = new Game();
     }
 
     public Game getGame() {
-        return game;
+        return this.game;
     }
 
     public void setGame(Game game) {

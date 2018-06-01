@@ -78,7 +78,7 @@ public class PlayerSelection implements Drawable {
             for (int it = 1; it <= this.currentPlayerCount; it++){
 
                 String pseudo = "Joueur " + it;
-                Color color = this.colors[i];
+                Color color = this.colors[it-1];
                 Player player = new Player(pseudo,color);
                 players.add(player);
             }
