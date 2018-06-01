@@ -1,5 +1,6 @@
 package Game;
 
+import Play.Game;
 import Graphics.Drawable;
 import Views.Map;
 import Views.Menu;
@@ -17,6 +18,7 @@ public class SlickGame extends BasicGame implements Drawable {
     private Menu menu;
     private PlayerSelection playerSelection;
     private Map map;
+    private Game game;
 
     public SlickGame(String title) {
         super(title);
@@ -24,8 +26,17 @@ public class SlickGame extends BasicGame implements Drawable {
 
         /* SCREENS */
         this.menu = new Menu();
-        this.playerSelection = new PlayerSelection();
+        this.playerSelection = new PlayerSelection(this.getGame());
         this.map = new Map();
+        this.game = new Game();
+    }
+
+    public Game getGame() {
+        return game;
+    }
+
+    public void setGame(Game game) {
+        this.game = game;
     }
 
     @Override

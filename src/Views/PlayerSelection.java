@@ -14,10 +14,13 @@ public class PlayerSelection implements Drawable {
 
     public Input input;
 
-    public Game game = new Game();
+    private Game game;
 
     private String playerCountString = "2";
     private int currentPlayerCount = 2;
+
+
+    private ArrayList<Color> colors = new ArrayList<>();
 
 
     private float[] pointsD = new float[]{1100, 400, 1200, 450, 1100, 500};
@@ -26,12 +29,22 @@ public class PlayerSelection implements Drawable {
     private Polygon triangleD = new Polygon(pointsD);
     private Polygon triangleG = new Polygon(pointsG);
 
+    public PlayerSelection(Game game) {
+        this.game = game;
+    }
 
     @Override
     public void init(GameContainer gameContainer) throws SlickException {
 
         this.playerCountString = "2";
         this.currentPlayerCount = 2;
+
+        colors.add(Color.red);
+        colors.add(Color.blue);
+        colors.add(Color.yellow);
+        colors.add(Color.cyan);
+        colors.add(Color.green);
+        colors.add(Color.darkGray);
 
     }
 
@@ -74,7 +87,8 @@ public class PlayerSelection implements Drawable {
             for (int it = 1; it <= this.currentPlayerCount; it++){
 
                 String pseudo = "Joueur " + it;
-                Player player = new Player(pseudo);
+                Color color = this.colors.get(i);
+                Player player = new Player(pseudo,color);
                 players.add(player);
             }
 
