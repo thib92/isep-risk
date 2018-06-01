@@ -9,7 +9,7 @@ import org.newdawn.slick.*;
 
 public class SlickGame extends BasicGame implements Drawable {
 
-    public static int WIDTH = 1600;
+    public static int WIDTH = 1300;
     public static int HEIGHT = 900;
 
     private GameScreen screen;
@@ -22,7 +22,7 @@ public class SlickGame extends BasicGame implements Drawable {
 
     public SlickGame(String title) {
         super(title);
-        this.screen = GameScreen.MENU;
+        this.screen = GameScreen.MAP;
         this.game = new Game();
 
         /* SCREENS */

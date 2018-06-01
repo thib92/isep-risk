@@ -45,7 +45,7 @@ public class Menu implements Drawable {
     @Override
     public void render(GameContainer gameContainer, Graphics graphics) throws SlickException {
         graphics.drawImage(this.bgImage, -100, 0);
-        graphics.drawImage(this.logoImage, 200, 200 );
+        graphics.drawImage(this.logoImage, 200, 200);
 
         graphics.setColor(new Color(0,0,0, this.transparence));
         graphics.fillRect(570, 800, 465, 32);
