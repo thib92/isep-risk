@@ -71,7 +71,7 @@ public class ParticleGame extends BasicGame {
 	 *             Indicates a failure to create the OpenGL context
 	 */
 	public ParticleGame(ParticleEditor editor) throws LWJGLException {
-		super("Particle Game.Game");
+		super("Particle SlickGame.SlickGame");
 	}
 
 	/**

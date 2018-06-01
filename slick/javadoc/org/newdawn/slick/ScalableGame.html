@@ -96,11 +96,11 @@ java.lang.Object
   <IMG SRC="../../../resources/inherit.gif" ALT="extended by "><B>org.newdawn.slick.ScalableGame</B>
 </PRE>
 <DL>
-<DT><B>All Implemented Interfaces:</B> <DD><A HREF="../../../org/newdawn/slick/Game.html" title="interface in org.newdawn.slick">Game.Game</A></DD>
+<DT><B>All Implemented Interfaces:</B> <DD><A HREF="../../../org/newdawn/slick/Game.html" title="interface in org.newdawn.slick">Game.SlickGame</A></DD>
 </DL>
 <HR>
 <DL>
-<DT><PRE>public class <B>ScalableGame</B><DT>extends java.lang.Object<DT>implements <A HREF="../../../org/newdawn/slick/Game.html" title="interface in org.newdawn.slick">Game.Game</A></DL>
+<DT><PRE>public class <B>ScalableGame</B><DT>extends java.lang.Object<DT>implements <A HREF="../../../org/newdawn/slick/Game.html" title="interface in org.newdawn.slick">Game.SlickGame</A></DL>
 </PRE>
 
 <P>
@@ -130,7 +130,7 @@ A wrapper to allow any game to be scalable. This relies on knowing the
 <B>Constructor Summary</B></FONT></TH>
 </TR>
 <TR BGCOLOR="white" CLASS="TableRowColor">
-<TD><CODE><B><A HREF="../../../org/newdawn/slick/ScalableGame.html#ScalableGame(org.newdawn.slick.Game, int, int)">ScalableGame</A></B>(<A HREF="../../../org/newdawn/slick/Game.html" title="interface in org.newdawn.slick">Game.Game</A>&nbsp;held,
+<TD><CODE><B><A HREF="../../../org/newdawn/slick/ScalableGame.html#ScalableGame(org.newdawn.slick.Game, int, int)">ScalableGame</A></B>(<A HREF="../../../org/newdawn/slick/Game.html" title="interface in org.newdawn.slick">Game.SlickGame</A>&nbsp;held,
              int&nbsp;normalWidth,
              int&nbsp;normalHeight)</CODE>
 
@@ -138,7 +138,7 @@ A wrapper to allow any game to be scalable. This relies on knowing the
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Create a new scalable game wrapper</TD>
 </TR>
 <TR BGCOLOR="white" CLASS="TableRowColor">
-<TD><CODE><B><A HREF="../../../org/newdawn/slick/ScalableGame.html#ScalableGame(org.newdawn.slick.Game, int, int, boolean)">ScalableGame</A></B>(<A HREF="../../../org/newdawn/slick/Game.html" title="interface in org.newdawn.slick">Game.Game</A>&nbsp;held,
+<TD><CODE><B><A HREF="../../../org/newdawn/slick/ScalableGame.html#ScalableGame(org.newdawn.slick.Game, int, int, boolean)">ScalableGame</A></B>(<A HREF="../../../org/newdawn/slick/Game.html" title="interface in org.newdawn.slick">Game.SlickGame</A>&nbsp;held,
              int&nbsp;normalWidth,
              int&nbsp;normalHeight,
              boolean&nbsp;maintainAspect)</CODE>
@@ -241,7 +241,7 @@ A wrapper to allow any game to be scalable. This relies on knowing the
 <A NAME="ScalableGame(org.newdawn.slick.Game, int, int)"><!-- --></A><H3>
 ScalableGame</H3>
 <PRE>
-public <B>ScalableGame</B>(<A HREF="../../../org/newdawn/slick/Game.html" title="interface in org.newdawn.slick">Game.Game</A>&nbsp;held,
+public <B>ScalableGame</B>(<A HREF="../../../org/newdawn/slick/Game.html" title="interface in org.newdawn.slick">Game.SlickGame</A>&nbsp;held,
                     int&nbsp;normalWidth,
                     int&nbsp;normalHeight)</PRE>
 <DL>
@@ -255,7 +255,7 @@ public <B>ScalableGame</B>(<A HREF="../../../org/newdawn/slick/Game.html" title=
 <A NAME="ScalableGame(org.newdawn.slick.Game, int, int, boolean)"><!-- --></A><H3>
 ScalableGame</H3>
 <PRE>
-public <B>ScalableGame</B>(<A HREF="../../../org/newdawn/slick/Game.html" title="interface in org.newdawn.slick">Game.Game</A>&nbsp;held,
+public <B>ScalableGame</B>(<A HREF="../../../org/newdawn/slick/Game.html" title="interface in org.newdawn.slick">Game.SlickGame</A>&nbsp;held,
                     int&nbsp;normalWidth,
                     int&nbsp;normalHeight,
                     boolean&nbsp;maintainAspect)</PRE>
@@ -282,12 +282,12 @@ init</H3>
 public void <B>init</B>(<A HREF="../../../org/newdawn/slick/GameContainer.html" title="class in org.newdawn.slick">GameContainer</A>&nbsp;container)
           throws <A HREF="../../../org/newdawn/slick/SlickException.html" title="class in org.newdawn.slick">SlickException</A></PRE>
 <DL>
-<DD><B>Description copied from interface: <CODE><A HREF="../../../org/newdawn/slick/Game.html#init(org.newdawn.slick.GameContainer)">Game.Game</A></CODE></B></DD>
+<DD><B>Description copied from interface: <CODE><A HREF="../../../org/newdawn/slick/Game.html#init(org.newdawn.slick.GameContainer)">Game.SlickGame</A></CODE></B></DD>
 <DD>Initialise the game. This can be used to load static resources. It's called
  before the game loop starts
 <P>
 <DD><DL>
-<DT><B>Specified by:</B><DD><CODE><A HREF="../../../org/newdawn/slick/Game.html#init(org.newdawn.slick.GameContainer)">init</A></CODE> in interface <CODE><A HREF="../../../org/newdawn/slick/Game.html" title="interface in org.newdawn.slick">Game.Game</A></CODE></DL>
+<DT><B>Specified by:</B><DD><CODE><A HREF="../../../org/newdawn/slick/Game.html#init(org.newdawn.slick.GameContainer)">init</A></CODE> in interface <CODE><A HREF="../../../org/newdawn/slick/Game.html" title="interface in org.newdawn.slick">Game.SlickGame</A></CODE></DL>
 </DD>
 <DD><DL>
 <DT><B>Parameters:</B><DD><CODE>container</CODE> - The container holding the game
@@ -323,12 +323,12 @@ public void <B>update</B>(<A HREF="../../../org/newdawn/slick/GameContainer.html
                    int&nbsp;delta)
             throws <A HREF="../../../org/newdawn/slick/SlickException.html" title="class in org.newdawn.slick">SlickException</A></PRE>
 <DL>
-<DD><B>Description copied from interface: <CODE><A HREF="../../../org/newdawn/slick/Game.html#update(org.newdawn.slick.GameContainer, int)">Game.Game</A></CODE></B></DD>
+<DD><B>Description copied from interface: <CODE><A HREF="../../../org/newdawn/slick/Game.html#update(org.newdawn.slick.GameContainer, int)">Game.SlickGame</A></CODE></B></DD>
 <DD>Update the game logic here. No rendering should take place in this method
  though it won't do any harm.
 <P>
 <DD><DL>
-<DT><B>Specified by:</B><DD><CODE><A HREF="../../../org/newdawn/slick/Game.html#update(org.newdawn.slick.GameContainer, int)">update</A></CODE> in interface <CODE><A HREF="../../../org/newdawn/slick/Game.html" title="interface in org.newdawn.slick">Game.Game</A></CODE></DL>
+<DT><B>Specified by:</B><DD><CODE><A HREF="../../../org/newdawn/slick/Game.html#update(org.newdawn.slick.GameContainer, int)">update</A></CODE> in interface <CODE><A HREF="../../../org/newdawn/slick/Game.html" title="interface in org.newdawn.slick">Game.SlickGame</A></CODE></DL>
 </DD>
 <DD><DL>
 <DT><B>Parameters:</B><DD><CODE>container</CODE> - The container holing this game<DD><CODE>delta</CODE> - The amount of time thats passed since last update in milliseconds
@@ -345,11 +345,11 @@ public final void <B>render</B>(<A HREF="../../../org/newdawn/slick/GameContaine
                          <A HREF="../../../org/newdawn/slick/Graphics.html" title="class in org.newdawn.slick">Graphics</A>&nbsp;g)
                   throws <A HREF="../../../org/newdawn/slick/SlickException.html" title="class in org.newdawn.slick">SlickException</A></PRE>
 <DL>
-<DD><B>Description copied from interface: <CODE><A HREF="../../../org/newdawn/slick/Game.html#render(org.newdawn.slick.GameContainer, org.newdawn.slick.Graphics)">Game.Game</A></CODE></B></DD>
+<DD><B>Description copied from interface: <CODE><A HREF="../../../org/newdawn/slick/Game.html#render(org.newdawn.slick.GameContainer, org.newdawn.slick.Graphics)">Game.SlickGame</A></CODE></B></DD>
 <DD>Render the game's screen here.
 <P>
 <DD><DL>
-<DT><B>Specified by:</B><DD><CODE><A HREF="../../../org/newdawn/slick/Game.html#render(org.newdawn.slick.GameContainer, org.newdawn.slick.Graphics)">render</A></CODE> in interface <CODE><A HREF="../../../org/newdawn/slick/Game.html" title="interface in org.newdawn.slick">Game.Game</A></CODE></DL>
+<DT><B>Specified by:</B><DD><CODE><A HREF="../../../org/newdawn/slick/Game.html#render(org.newdawn.slick.GameContainer, org.newdawn.slick.Graphics)">render</A></CODE> in interface <CODE><A HREF="../../../org/newdawn/slick/Game.html" title="interface in org.newdawn.slick">Game.SlickGame</A></CODE></DL>
 </DD>
 <DD><DL>
 <DT><B>Parameters:</B><DD><CODE>container</CODE> - The container holing this game<DD><CODE>g</CODE> - The graphics context that can be used to render. However, normal rendering
@@ -382,11 +382,11 @@ closeRequested</H3>
 <PRE>
 public boolean <B>closeRequested</B>()</PRE>
 <DL>
-<DD><B>Description copied from interface: <CODE><A HREF="../../../org/newdawn/slick/Game.html#closeRequested()">Game.Game</A></CODE></B></DD>
+<DD><B>Description copied from interface: <CODE><A HREF="../../../org/newdawn/slick/Game.html#closeRequested()">Game.SlickGame</A></CODE></B></DD>
 <DD>Notification that a game close has been requested
 <P>
 <DD><DL>
-<DT><B>Specified by:</B><DD><CODE><A HREF="../../../org/newdawn/slick/Game.html#closeRequested()">closeRequested</A></CODE> in interface <CODE><A HREF="../../../org/newdawn/slick/Game.html" title="interface in org.newdawn.slick">Game.Game</A></CODE></DL>
+<DT><B>Specified by:</B><DD><CODE><A HREF="../../../org/newdawn/slick/Game.html#closeRequested()">closeRequested</A></CODE> in interface <CODE><A HREF="../../../org/newdawn/slick/Game.html" title="interface in org.newdawn.slick">Game.SlickGame</A></CODE></DL>
 </DD>
 <DD><DL>
 
@@ -400,11 +400,11 @@ getTitle</H3>
 <PRE>
 public java.lang.String <B>getTitle</B>()</PRE>
 <DL>
-<DD><B>Description copied from interface: <CODE><A HREF="../../../org/newdawn/slick/Game.html#getTitle()">Game.Game</A></CODE></B></DD>
+<DD><B>Description copied from interface: <CODE><A HREF="../../../org/newdawn/slick/Game.html#getTitle()">Game.SlickGame</A></CODE></B></DD>
 <DD>Get the title of this game
 <P>
 <DD><DL>
-<DT><B>Specified by:</B><DD><CODE><A HREF="../../../org/newdawn/slick/Game.html#getTitle()">getTitle</A></CODE> in interface <CODE><A HREF="../../../org/newdawn/slick/Game.html" title="interface in org.newdawn.slick">Game.Game</A></CODE></DL>
+<DT><B>Specified by:</B><DD><CODE><A HREF="../../../org/newdawn/slick/Game.html#getTitle()">getTitle</A></CODE> in interface <CODE><A HREF="../../../org/newdawn/slick/Game.html" title="interface in org.newdawn.slick">Game.SlickGame</A></CODE></DL>
 </DD>
 <DD><DL>
 

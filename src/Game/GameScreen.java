@@ -2,5 +2,6 @@ package Game;
 
 public enum GameScreen {
     MENU,
-    PLAYER_SELECTION
+    PLAYER_SELECTION,
+    MAP
 }

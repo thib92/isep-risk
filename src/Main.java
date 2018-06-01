@@ -1,6 +1,6 @@
-import Game.Game;
 import org.newdawn.slick.AppGameContainer;
 import org.newdawn.slick.SlickException;
+import Game.SlickGame;
 
 public class Main {
 
@@ -8,8 +8,8 @@ public class Main {
 
 
         try {
-            AppGameContainer app = new AppGameContainer(new Game("Risk"));
-            app.setDisplayMode(Game.WIDTH, Game.HEIGHT, false);
+            AppGameContainer app = new AppGameContainer(new SlickGame("Risk"));
+            app.setDisplayMode(SlickGame.WIDTH, SlickGame.HEIGHT, false);
             int maxFPS = 60;
             app.setTargetFrameRate(maxFPS);
             app.setShowFPS(true);

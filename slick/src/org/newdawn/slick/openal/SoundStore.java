@@ -910,7 +910,7 @@ public class SoundStore {
 				try {
 					mod.poll();
 				} catch (OpenALException e) {
-					Log.error("Error with OpenGL MOD Player on this this platform");
+					Log.error("Error with OpenGL MOD Play.Play on this this platform");
 					Log.error(e);
 					mod = null;
 				}
@@ -919,7 +919,7 @@ public class SoundStore {
 				try {
 					stream.update();
 				} catch (OpenALException e) {
-					Log.error("Error with OpenGL Streaming Player on this this platform");
+					Log.error("Error with OpenGL Streaming Play.Play on this this platform");
 					Log.error(e);
 					mod = null;
 				}

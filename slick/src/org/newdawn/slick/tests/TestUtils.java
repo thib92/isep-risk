@@ -155,7 +155,7 @@ public class TestUtils {
 	}
 	
 	/**
-	 * Game.Game loop update
+	 * SlickGame.SlickGame loop update
 	 */
 	public void update() {
 		while (Keyboard.next()) {
@@ -191,7 +191,7 @@ public class TestUtils {
 	}
 
 	/**
-	 * Game.Game loop render
+	 * SlickGame.SlickGame loop render
 	 */
 	public void render() {
 		Color.white.bind();

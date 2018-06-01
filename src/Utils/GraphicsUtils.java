@@ -1,6 +1,6 @@
 package Utils;
 
-import Game.Game;
+import Game.SlickGame;
 import org.newdawn.slick.Font;
 import org.newdawn.slick.Graphics;
 
@@ -13,7 +13,7 @@ public class GraphicsUtils {
      * @param y The y position to draw the text with
      */
     public static void drawCenteredText(String text, Font font, float y) {
-        font.drawString(Game.WIDTH / 2 - (font.getWidth(text) / 2), y, text);
+        font.drawString(SlickGame.WIDTH / 2 - (font.getWidth(text) / 2), y, text);
     }
 
     /**
@@ -23,7 +23,7 @@ public class GraphicsUtils {
      * @param y The y positiopn to draw the text with
      */
     public static void drawCenteredText(String text, Graphics graphics, float y) {
-        graphics.drawString(text,Game.WIDTH / 2 - (graphics.getFont().getWidth(text) / 2), y);
+        graphics.drawString(text, SlickGame.WIDTH / 2 - (graphics.getFont().getWidth(text) / 2), y);
     }
 
 }
