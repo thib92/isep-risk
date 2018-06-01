@@ -6,29 +6,23 @@ import Views.Map;
 import Views.Menu;
 import Views.PlayerSelection;
 import org.newdawn.slick.*;
+import org.newdawn.slick.state.StateBasedGame;
 
-public class SlickGame extends BasicGame implements Drawable {
+public class SlickGame extends StateBasedGame {
 
-    public static int WIDTH = 1300;
+    public static int WIDTH = 1600;
     public static int HEIGHT = 900;
 
-    private GameScreen screen;
-
-    /* SCREENS */
-    private Menu menu;
-    private PlayerSelection playerSelection;
-    private Map map;
     private Game game;
 
     public SlickGame(String title) {
         super(title);
-        this.screen = GameScreen.MAP;
         this.game = new Game();
 
-        /* SCREENS */
-        this.menu = new Menu();
-        this.playerSelection = new PlayerSelection(this.getGame());
-        this.map = new Map();
+        this.addState(new Menu());
+        this.addState(new PlayerSelection());
+        this.addState(new Map());
+        this.enterState(GameScreen.MENU.getId());
     }
 
     public Game getGame() {
@@ -40,63 +34,23 @@ public class SlickGame extends BasicGame implements Drawable {
     }
 
     @Override
-    public void init(GameContainer gameContainer) throws SlickException {
+    public void initStatesList(GameContainer gameContainer) throws SlickException {
+        // @TODO : Handle that modafokin font
         gameContainer.setDefaultFont(
-                new TrueTypeFont(
-                        new java.awt.Font("Helvetica", java.awt.Font.BOLD, 32),
-                        true
-                )
+            new TrueTypeFont(
+                new java.awt.Font("Helvetica", java.awt.Font.BOLD, 32),
+                true
+            )
         );
-        switch (this.screen) {
-            case MENU:
-                this.menu.init(gameContainer);
-                break;
-            case PLAYER_SELECTION:
-                this.playerSelection.init(gameContainer);
-                break;
-            case MAP:
-                this.map.init(gameContainer);
-                break;
-        }
-    }
-
-
-    @Override
-    public void update(GameContainer gameContainer, int i) throws SlickException {
-        switch (this.screen) {
-            case MENU:
-                this.menu.update(gameContainer, i);
-                break;
-            case PLAYER_SELECTION:
-                this.playerSelection.update(gameContainer, i);
-                break;
-            case MAP:
-                this.map.update(gameContainer, i);
-                break;
-        }
-    }
-
-
-    @Override
-    public void render(GameContainer gameContainer, Graphics graphics) throws SlickException {
-        graphics.setFont(gameContainer.getDefaultFont());
-        switch (this.screen) {
-            case MENU:
-                this.menu.render(gameContainer, graphics);
-                break;
-            case PLAYER_SELECTION:
-                this.playerSelection.render(gameContainer, graphics);
-                break;
-            case MAP:
-                this.map.render(gameContainer, graphics);
-                break;
-        }
+        this.getState(GameScreen.MENU.getId()).init(gameContainer, this);
+        this.getState(GameScreen.PLAYER_SELECTION.getId()).init(gameContainer, this);
+        this.getState(GameScreen.MAP.getId()).init(gameContainer, this);
     }
 
     @Override
     public void keyPressed(int key, char c) {
-        if(this.screen.equals(GameScreen.MENU) && key == Input.KEY_ENTER) {
-            this.screen = GameScreen.PLAYER_SELECTION;
+        if(this.getCurrentStateID() == GameScreen.MENU.getId() && key == Input.KEY_ENTER) {
+            this.enterState(GameScreen.PLAYER_SELECTION.getId());
             try {
                 Sound gunShot = new Sound("sons/gunshot.ogg");
                 gunShot.play();
@@ -104,8 +58,8 @@ public class SlickGame extends BasicGame implements Drawable {
                 e.printStackTrace();
             }
         }
-        else if(this.screen.equals(GameScreen.PLAYER_SELECTION) && key == Input.KEY_ENTER){
-            this.screen = GameScreen.MAP;
+        else if(this.getCurrentStateID() == GameScreen.PLAYER_SELECTION.getId() && key == Input.KEY_ENTER){
+            this.enterState(GameScreen.MAP.getId());
         }
     }
 }

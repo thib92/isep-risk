@@ -3,14 +3,16 @@ package Views;
 import Play.Game;
 import Play.Player;
 import Game.SlickGame;
-import Graphics.Drawable;
+import Game.GameScreen;
 import Utils.GraphicsUtils;
 import org.newdawn.slick.*;
 import org.newdawn.slick.geom.Polygon;
+import org.newdawn.slick.state.BasicGameState;
+import org.newdawn.slick.state.StateBasedGame;
 
 import java.util.ArrayList;
 
-public class PlayerSelection implements Drawable {
+public class PlayerSelection extends BasicGameState {
 
     public Input input;
 
@@ -29,19 +31,15 @@ public class PlayerSelection implements Drawable {
     private Polygon triangleD = new Polygon(pointsD);
     private Polygon triangleG = new Polygon(pointsG);
 
-    public PlayerSelection(Game game) {
-        this.game = game;
-    }
-
     @Override
-    public void init(GameContainer gameContainer) throws SlickException {
+    public void init(GameContainer gameContainer, StateBasedGame slickGame) throws SlickException {
         this.playerCountString = "2";
         this.currentPlayerCount = 2;
     }
 
 
     @Override
-    public void update(GameContainer gameContainer, int i) throws SlickException {
+    public void update(GameContainer gameContainer, StateBasedGame slickGame, int i) throws SlickException {
 
 
         this.input = gameContainer.getInput();
@@ -83,14 +81,15 @@ public class PlayerSelection implements Drawable {
                 players.add(player);
             }
 
-            this.game.setPlayers(players);
+            // @TODO : Switch to State from StateBasedGame (?)
+            //slickGame.getGame().setPlayers(players);
         }
 
 
     }
 
     @Override
-    public void render(GameContainer gameContainer, Graphics graphics) throws SlickException {
+    public void render(GameContainer gameContainer, StateBasedGame slickGame, Graphics graphics) throws SlickException {
         graphics.setColor(Color.white);
         GraphicsUtils.drawCenteredText("Sélection des joueurs", graphics, 800);
 
@@ -102,5 +101,10 @@ public class PlayerSelection implements Drawable {
         graphics.setColor(Color.black);
         GraphicsUtils.drawCenteredText(playerCountString, graphics, 433);
 
+    }
+
+    @Override
+    public int getID() {
+        return GameScreen.PLAYER_SELECTION.getId();
     }
 }

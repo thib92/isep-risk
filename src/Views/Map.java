@@ -1,60 +1,46 @@
 package Views;
 
-import Game.SlickGame;
-import Graphics.Drawable;
-import Play.Game;
-import Play.Player;
-import Troups.Soldier;
+import Game.GameScreen;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
-import org.newdawn.slick.*;
+import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
+import org.newdawn.slick.state.BasicGameState;
+import org.newdawn.slick.state.StateBasedGame;
 
-import java.util.ArrayList;
-
-public class Map implements Drawable {
+public class Map extends BasicGameState {
 
 
     private Image map;
-    private Game game;
-    private SlickGame slickGame;
+
+    public Map() {
+    }
 
     @Override
-    public void init(GameContainer gameContainer) throws SlickException {
-
-
-        this.map = new Image("images/map.png");
-        this.game = this.slickGame.getGame();
-        ArrayList<Player> playeurs = this.game.getPlayers();
-        int playerNumber = playeurs.size();
-
-        switch (playerNumber){
-            case 1:
-                ArrayList<Soldier> army1 = new ArrayList<>();
-                ArrayList<Soldier> army2 = new ArrayList<>();
-
-                for(int it = 0; it < 40; it++){
-                    army1.add(new Soldier());
-                    army2.add(new Soldier());
-                }
-                break;
-            case 2:
-                //ArrayList<Soldier> army1 = new
-                break;
+    public void init(GameContainer gameContainer, StateBasedGame slickGame) throws SlickException {
+        System.out.println("Map Init");
+        try {
+            this.map = new Image("images/map.png");
+        } catch (SlickException e) {
+            e.printStackTrace();
         }
-
     }
 
     @Override
-    public void update(GameContainer gameContainer, int i) throws SlickException {
-
+    public void update(GameContainer gameContainer, StateBasedGame slickGame, int i) throws SlickException {
+        System.out.println("Map Update");
     }
 
     @Override
-    public void render(GameContainer gameContainer, Graphics graphics) throws SlickException{
+    public void render(GameContainer gameContainer, StateBasedGame slickGame, Graphics graphics) throws SlickException {
+        System.out.println("Map Render");
+        System.out.println(this.map);
+        graphics.drawImage(this.map, 0, 0);
+    }
 
-        graphics.fillRect(0, 0, SlickGame.WIDTH, SlickGame.HEIGHT);
-        graphics.drawImage(this.map, 0,0);
+    @Override
+    public int getID() {
+        return GameScreen.MAP.getId();
     }
 
 }

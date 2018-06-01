@@ -1,10 +1,12 @@
 package Views;
 
-import Graphics.Drawable;
+import Game.GameScreen;
 import Utils.GraphicsUtils;
 import org.newdawn.slick.*;
+import org.newdawn.slick.state.BasicGameState;
+import org.newdawn.slick.state.StateBasedGame;
 
-public class Menu implements Drawable {
+public class Menu extends BasicGameState {
 
     private int transparence = 0;
     private boolean up = true;
@@ -14,7 +16,7 @@ public class Menu implements Drawable {
     private Image logoImage;
 
     @Override
-    public void init(GameContainer gameContainer) throws SlickException {
+    public void init(GameContainer gameContainer, StateBasedGame slickGame) throws SlickException {
         try {
             this.sound = new Sound("sons/acceuil.ogg");
             this.sound.loop();
@@ -26,7 +28,7 @@ public class Menu implements Drawable {
     }
 
     @Override
-    public void update(GameContainer gameContainer, int i) throws SlickException {
+    public void update(GameContainer gameContainer, StateBasedGame slickGame, int i) throws SlickException {
 
         // Text blink
         if (this.up) {
@@ -43,14 +45,19 @@ public class Menu implements Drawable {
     }
 
     @Override
-    public void render(GameContainer gameContainer, Graphics graphics) throws SlickException {
+    public void render(GameContainer gameContainer, StateBasedGame slickGame, Graphics graphics) throws SlickException {
         graphics.drawImage(this.bgImage, -100, 0);
-        graphics.drawImage(this.logoImage, 200, 200);
+        graphics.drawImage(this.logoImage, 200, 200 );
 
         graphics.setColor(new Color(0,0,0, this.transparence));
         graphics.fillRect(570, 800, 465, 32);
 
         graphics.setColor(new Color(255,255,255, this.transparence));
         GraphicsUtils.drawCenteredText("Appuyez sur Entrer pour jouer", graphics, 800);
+    }
+
+    @Override
+    public int getID() {
+        return GameScreen.MENU.getId();
     }
 }
