@@ -14,14 +14,15 @@ public class Territory {
     public Territory(int id, String name) {
         this.id = id;
         this.name = name;
-        this.neighbors = new ArrayList<Territory>();
+        this.boundary = new Boundary();
+        this.neighbors = new ArrayList<>();
     }
 
     public Territory(int id, String name, Boundary boundary) {
         this.id = id;
         this.name = name;
         this.boundary = boundary;
-        this.neighbors = new ArrayList<Territory>();
+        this.neighbors = new ArrayList<>();
     }
 
     public Territory(int id, String name, Boundary boundary, ArrayList<Territory> neighbors) {

@@ -1,7 +1,7 @@
 package Views;
 
-import Play.Game;
 import Play.Player;
+import Game.World;
 import Game.SlickGame;
 import Game.GameScreen;
 import Utils.GraphicsUtils;
@@ -10,6 +10,7 @@ import org.newdawn.slick.geom.Polygon;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class PlayerSelectionView extends BasicGameState {
@@ -79,6 +80,11 @@ public class PlayerSelectionView extends BasicGameState {
 
             // @TODO : Switch to State from StateBasedGame (?)
             //slickGame.getGame().setPlayers(players);
+            try {
+                World.initialize(players);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
             slickGame.enterState(GameScreen.MAP.getId());
         }
 
