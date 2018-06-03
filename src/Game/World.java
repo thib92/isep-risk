@@ -65,9 +65,38 @@ public class World {
 
     }
 
+    /**
+     * Computes the next phase to be played, and returns it
+     * @return the next phase to be played, containing the phase type and the player playing it
+     */
     public static Phase getNextPhase() {
-        // @TODO : Implement this method
-        return World.phase;
+        switch (World.phase.getPhase()) {
+            case RECEP_MISSION:
+                // If the last player of queue is playing
+                if(World.getPhase().getPlayer().getId() == World.getPlayers().size()) {
+                    return new Phase(GamePhase.DISPATCH, World.getPlayers().get(0));
+                } else {
+                    return new Phase(GamePhase.RECEP_MISSION, World.getPlayers().get(World.getPhase().getPlayer().getId()+1));
+                }
+            case DISPATCH:
+                return new Phase(GamePhase.MOV_ATK, World.getPhase().getPlayer());
+            case MOV_ATK:
+                if(World.getPhase().getPlayer().getId() == World.getPlayers().size()) {
+                    return new Phase(GamePhase.RENFORTS, World.getPlayers().get(0));
+                } else {
+                    return new Phase(GamePhase.RENFORTS, World.getPlayers().get(World.getPhase().getPlayer().getId()+1));
+                }
+            default:
+                return World.phase;
+        }
+    }
+
+    /**
+     * Goes to the next phase to be played and returns it
+     * @return The next phase to be played
+     */
+    public static Phase nextPhase() {
+        return World.phase = World.getNextPhase();
     }
 
     public static ArrayList<Player> getPlayers() {

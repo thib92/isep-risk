@@ -4,15 +4,12 @@ import org.newdawn.slick.Color;
 
 public class Player {
 
-
-    public Player(){
-
-    }
-
     private String pseudo;
     private Color color;
+    private int id;
 
-    public Player(String pseudo, Color color) {
+    public Player(int id, String pseudo, Color color) {
+        this.id = id;
         this.pseudo = pseudo;
         this.color = color;
     }
@@ -31,5 +28,9 @@ public class Player {
 
     public void setColor(Color color) {
         this.color = color;
+    }
+
+    public int getId() {
+        return id;
     }
 }
