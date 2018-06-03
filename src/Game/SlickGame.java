@@ -9,7 +9,7 @@ import org.newdawn.slick.state.StateBasedGame;
 
 public class SlickGame extends StateBasedGame {
 
-    public static int WIDTH = 1600;
+    public static int WIDTH = 1280;
     public static int HEIGHT = 900;
 
     private Game game;

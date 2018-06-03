@@ -17,7 +17,7 @@ public class Boundary extends Polygon {
         int i;
         int j;
         boolean result = false;
-        for (i = 0, j = points.length - 1; i < points.length; j = i++) {
+        for (i = 0, j = this.getPointCount() - 1; i < this.getPointCount(); j = i++) {
             if ((this.getPoint(i)[1] > point[1]) != (this.getPoint(j)[1] > point[1]) &&
                     (point[0] < (this.getPoint(j)[0] - this.getPoint(i)[0]) * (point[1] - this.getPoint(i)[1]) / (this.getPoint(j)[1]-this.getPoint(i)[1]) + this.getPoint(i)[0])) {
                 result = !result;
