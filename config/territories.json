@@ -1,0 +1,230 @@
+[
+
+
+  {
+    "id": 0,
+    "name": "Europe occidentale",
+    "neighbors": [1, 2, 3, 24]
+  },
+  {
+    "id": 1,
+    "name": "Grande-Bretagne",
+    "neighbors": [0, 6, 5, 2]
+  },
+  {
+    "id": 2,
+    "name": "Europe du Nord",
+    "neighbors": [3, 4, 0, 1]
+  },
+  {
+    "id": 3,
+    "name": "Europe du Sud",
+    "neighbors": [23, 0, 2, 4, 9]
+  },
+  {
+    "id": 4,
+    "name": "Ukraine",
+    "neighbors": [2, 3, 5, 7, 8, 9]
+  },
+  {
+    "id": 5,
+    "name": "Scandinavie",
+    "neighbors": [1, 2, 4, 6]
+  },
+  {
+    "id": 6,
+    "name": "Islande",
+    "neighbors": [2, 1, 5, 41]
+  },
+
+
+
+  {
+    "id": 7,
+    "name": "Oural",
+    "neighbors": [8, 4, 15, 12]
+  },
+  {
+    "id": 8,
+    "name": "Afghanistan",
+    "neighbors": [7, 9, 4, 12, 10]
+  },
+  {
+    "id": 9,
+    "name": "Moyen-Orient",
+    "neighbors": [10, 8, 4, 3, 23, 26]
+  },
+  {
+    "id": 10,
+    "name": "Inde",
+    "neighbors": [9, 8, 12, 11]
+  },
+  {
+    "id": 11,
+    "name": "Siam",
+    "neighbors": [10, 12, 19]
+  },
+  {
+    "id": 12,
+    "name": "Chine",
+    "neighbors": [10, 11, 13, 8, 7, 15]
+  },
+  {
+    "id": 13,
+    "name": "Mongolie",
+    "neighbors": [12, 15, 14, 17, 18]
+  },
+  {
+    "id": 14,
+    "name": "Tchita",
+    "neighbors": [13, 15, 16, 17]
+  },
+  {
+    "id": 15,
+    "name": "Siberie",
+    "neighbors": [7, 12, 13, 14, 16]
+  },
+  {
+    "id": 16,
+    "name": "Yakoutie",
+    "neighbors": [15, 14, 17]
+  },
+  {
+    "id": 17,
+    "name": "Kamschatka",
+    "neighbors": [16, 14, 13, 33]
+  },
+  {
+    "id": 18,
+    "name": "Japon",
+    "neighbors": [17, 13]
+  },
+
+
+  {
+    "id": 19,
+    "name": "Indonesie",
+    "neighbors": [11, 20, 21]
+  },
+  {
+    "id": 20,
+    "name": "Nouvelle Guinee",
+    "neighbors": [19, 22, 21]
+  },
+  {
+    "id": 21,
+    "name": "Australie occidentale",
+    "neighbors": [22, 20, 19]
+  },
+  {
+    "id": 22,
+    "name": "Australie orientale",
+    "neighbors": [21, 20]
+  },
+
+
+
+  {
+    "id": 23,
+    "name": "Egypte",
+    "neighbors": [3, 9, 24, 26]
+  },
+  {
+    "id": 24,
+    "name": "Afrique du Nord",
+    "neighbors": [23, 0, 3, 25, 26, 30]
+  },
+  {
+    "id": 25,
+    "name": "Congo",
+    "neighbors": [24, 23, 26, 27]
+  },
+  {
+    "id": 26,
+    "name": "Afrique orientale",
+    "neighbors": [9, 23, 24, 25, 27, 28]
+  },
+  {
+    "id": 27,
+    "name": "Afrique du sud",
+    "neighbors": [25, 26, 28]
+  },
+  {
+    "id": 28,
+    "name": "Madagascar",
+    "neighbors": [27, 26]
+  },
+
+
+
+  {
+    "id": 29,
+    "name": "Venezuela",
+    "neighbors": [30, 31, 40]
+  },
+  {
+    "id": 30,
+    "name": "Bresil",
+    "neighbors": [24, 29, 31]
+  },
+  {
+    "id": 31,
+    "name": "Perou",
+    "neighbors": [29, 30, 32]
+  },
+  {
+    "id": 32,
+    "name": "Argentine",
+    "neighbors": [30, 31]
+  },
+
+
+
+  {
+    "id": 33,
+    "name": "Alaska",
+    "neighbors": [17, 34, 35]
+  },
+  {
+    "id": 34,
+    "name": "Territoire du Nord-Ouest",
+    "neighbors": [33, 35, 36, 41]
+  },
+  {
+    "id": 35,
+    "name": "Alberta",
+    "neighbors": [33, 34, 36, 38]
+  },
+  {
+    "id": 36,
+    "name": "Ontario",
+    "neighbors": [38, 39, 37, 35, 34, 41]
+  },
+  {
+    "id": 37,
+    "name": "Quebec",
+    "neighbors": [41, 39, 36]
+  },
+  {
+    "id": 38,
+    "name": "Etat de l'Ouest",
+    "neighbors": [35, 36, 39, 40]
+  },
+  {
+    "id": 39,
+    "name": "Etat de l'Est",
+    "neighbors": [40, 38, 37, 36]
+  },
+  {
+    "id": 40,
+    "name": "Amerique Centrale",
+    "neighbors": [29, 38, 39]
+  },
+  {
+    "id": 41,
+    "name": "Groenland",
+    "neighbors": [6, 37, 34, 36]
+  }
+
+
+]

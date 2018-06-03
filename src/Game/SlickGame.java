@@ -1,10 +1,9 @@
 package Game;
 
 import Play.Game;
-import Graphics.Drawable;
-import Views.Map;
-import Views.Menu;
-import Views.PlayerSelection;
+import Views.MapView;
+import Views.MenuView;
+import Views.PlayerSelectionView;
 import org.newdawn.slick.*;
 import org.newdawn.slick.state.StateBasedGame;
 
@@ -19,9 +18,9 @@ public class SlickGame extends StateBasedGame {
         super(title);
         this.game = new Game();
 
-        this.addState(new Menu());
-        this.addState(new PlayerSelection());
-        this.addState(new Map());
+        this.addState(new MenuView());
+        this.addState(new PlayerSelectionView());
+        this.addState(new MapView());
         this.enterState(GameScreen.MENU.getId());
     }
 
@@ -45,21 +44,5 @@ public class SlickGame extends StateBasedGame {
         this.getState(GameScreen.MENU.getId()).init(gameContainer, this);
         this.getState(GameScreen.PLAYER_SELECTION.getId()).init(gameContainer, this);
         this.getState(GameScreen.MAP.getId()).init(gameContainer, this);
-    }
-
-    @Override
-    public void keyPressed(int key, char c) {
-        if(this.getCurrentStateID() == GameScreen.MENU.getId() && key == Input.KEY_ENTER) {
-            this.enterState(GameScreen.PLAYER_SELECTION.getId());
-            try {
-                Sound gunShot = new Sound("sons/gunshot.ogg");
-                gunShot.play();
-            } catch (SlickException e) {
-                e.printStackTrace();
-            }
-        }
-        else if(this.getCurrentStateID() == GameScreen.PLAYER_SELECTION.getId() && key == Input.KEY_ENTER){
-            this.enterState(GameScreen.MAP.getId());
-        }
     }
 }

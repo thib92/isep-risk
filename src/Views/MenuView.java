@@ -4,9 +4,10 @@ import Game.GameScreen;
 import Utils.GraphicsUtils;
 import org.newdawn.slick.*;
 import org.newdawn.slick.state.BasicGameState;
+import org.newdawn.slick.state.GameState;
 import org.newdawn.slick.state.StateBasedGame;
 
-public class Menu extends BasicGameState {
+public class MenuView extends BasicGameState {
 
     private int transparence = 0;
     private boolean up = true;
@@ -42,6 +43,18 @@ public class Menu extends BasicGameState {
                 this.up = true;
             }
         }
+
+        Input input = gameContainer.getInput();
+        if(input.isKeyPressed(Input.KEY_ENTER)) {
+            slickGame.enterState(GameScreen.PLAYER_SELECTION.getId());
+            try {
+                Sound gunShot = new Sound("sons/gunshot.ogg");
+                gunShot.play();
+            } catch (SlickException e) {
+                e.printStackTrace();
+            }
+        }
+
     }
 
     @Override

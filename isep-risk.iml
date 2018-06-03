@@ -10,23 +10,25 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="file://$MODULE_DIR$/slick/lib" />
+          <root url="file://$MODULE_DIR$/lib/slick/lib" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
-        <jarDirectory url="file://$MODULE_DIR$/slick/lib" recursive="false" />
+        <jarDirectory url="file://$MODULE_DIR$/lib/slick/lib" recursive="false" />
       </library>
     </orderEntry>
-    <orderEntry type="library" exported="" name="slick" level="project" />
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="file://$MODULE_DIR$/slick/lib" />
+          <root url="file://$MODULE_DIR$/lib/slick/lib" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
-        <jarDirectory url="file://$MODULE_DIR$/slick/lib" recursive="false" />
+        <jarDirectory url="file://$MODULE_DIR$/lib/slick/lib" recursive="false" />
       </library>
     </orderEntry>
+    <orderEntry type="library" exported="" name="slick" level="project" />
+    <orderEntry type="library" name="gson-2.8.5" level="project" />
+    <orderEntry type="library" name="json-20180130" level="project" />
   </component>
 </module>

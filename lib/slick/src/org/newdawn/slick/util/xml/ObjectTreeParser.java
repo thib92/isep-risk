@@ -317,7 +317,7 @@ public class ObjectTreeParser {
 	}
 	
 	/**
-	 * Map a primitive class type to it's real object wrapper
+	 * MapView a primitive class type to it's real object wrapper
 	 * 
 	 * @param clazz The primitive type class
 	 * @return The object wrapper class

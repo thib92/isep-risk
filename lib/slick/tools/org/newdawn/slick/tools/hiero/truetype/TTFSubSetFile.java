@@ -466,7 +466,7 @@ public class TTFSubSetFile extends TTFFile {
 
     /**
      * Create the hmtx table by copying metrics from original
-     * font to subset font. The glyphs Map contains an
+     * font to subset font. The glyphs MapView contains an
      * Integer key and Integer value that maps the original
      * metric (key) to the subset metric (value)
      *
@@ -696,7 +696,7 @@ public class TTFSubSetFile extends TTFFile {
      *
      * @param in FontFileReader to read from
      * @param name Name to be checked for in the font file
-     * @param glyphs Map of glyphs (glyphs has old index as (Integer) key and
+     * @param glyphs MapView of glyphs (glyphs has old index as (Integer) key and
      * new index as (Integer) value)
      * @return A subset of the original font
      * @throws IOException in case of an I/O problem

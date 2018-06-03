@@ -760,7 +760,7 @@ public class TTFFile {
     
     /**
      * Returns the kerning table.
-     * @return Map The kerning table
+     * @return MapView The kerning table
      */
     public Map getKerning() {
         return kerningTab;
@@ -768,7 +768,7 @@ public class TTFFile {
 
     /**
      * Returns the ANSI kerning table.
-     * @return Map The ANSI kerning table
+     * @return MapView The ANSI kerning table
      */
     public Map getAnsiKerning() {
         return ansiKerningTab;
@@ -1526,7 +1526,7 @@ public class TTFFile {
     }
 
     /**
-     * Map a glyph index to the corresponding unicode code point
+     * MapView a glyph index to the corresponding unicode code point
      * 
      * @param glyphIndex
      * @return unicode code point
@@ -1537,7 +1537,7 @@ public class TTFFile {
     }
     
     /**
-     * Map a unicode code point to the corresponding glyph index 
+     * MapView a unicode code point to the corresponding glyph index
      * 
      * @param unicodeIndex unicode code point
      * @return glyph index

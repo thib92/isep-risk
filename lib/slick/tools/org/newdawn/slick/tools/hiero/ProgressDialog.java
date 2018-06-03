@@ -25,7 +25,7 @@ public class ProgressDialog extends JDialog implements ProgressListener {
 	 * @param frame The owner frame that should be blocked
 	 */
 	public ProgressDialog(JFrame frame) {
-		super(frame, "Generating Distance Map", true);
+		super(frame, "Generating Distance MapView", true);
 	
 		setSize(300,200);
 		setResizable(false);
@@ -39,7 +39,7 @@ public class ProgressDialog extends JDialog implements ProgressListener {
 		super.paint(g);
 		
 		g.setColor(Color.black);
-		g.drawString("Generating Distance Map", 10, 100);
+		g.drawString("Generating Distance MapView", 10, 100);
 		g.drawString(message + "("+current+"/"+total+")", 20, 150);
 	}
 

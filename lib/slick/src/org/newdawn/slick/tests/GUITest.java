@@ -29,7 +29,7 @@ public class GUITest extends BasicGame implements ComponentListener {
 	/** The game container */
 	private GameContainer container;
 	/** The message to display */
-	private String message = "Demo Menu System with stock images";
+	private String message = "Demo MenuView System with stock images";
 	/** The text field */
 	private TextField field;
 	/** The text field */

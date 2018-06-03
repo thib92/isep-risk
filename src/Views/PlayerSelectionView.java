@@ -12,11 +12,7 @@ import org.newdawn.slick.state.StateBasedGame;
 
 import java.util.ArrayList;
 
-public class PlayerSelection extends BasicGameState {
-
-    public Input input;
-
-    private Game game;
+public class PlayerSelectionView extends BasicGameState {
 
     private String playerCountString = "2";
     private int currentPlayerCount = 2;
@@ -42,12 +38,12 @@ public class PlayerSelection extends BasicGameState {
     public void update(GameContainer gameContainer, StateBasedGame slickGame, int i) throws SlickException {
 
 
-        this.input = gameContainer.getInput();
+        Input input = gameContainer.getInput();
 
-        if(this.input.isMousePressed(Input.MOUSE_LEFT_BUTTON)) {
+        if(input.isMousePressed(Input.MOUSE_LEFT_BUTTON)) {
 
-            int x = this.input.getMouseX();
-            int y = this.input.getMouseY();
+            int x = input.getMouseX();
+            int y = input.getMouseY();
 
             this.currentPlayerCount = Integer.parseInt(playerCountString);
 
@@ -67,7 +63,7 @@ public class PlayerSelection extends BasicGameState {
             }
         }
 
-        if (this.input.isKeyPressed(Input.KEY_ENTER)){
+        if (input.isKeyPressed(Input.KEY_ENTER)){
 
             this.currentPlayerCount = Integer.parseInt(this.playerCountString);
 
@@ -83,6 +79,7 @@ public class PlayerSelection extends BasicGameState {
 
             // @TODO : Switch to State from StateBasedGame (?)
             //slickGame.getGame().setPlayers(players);
+            slickGame.enterState(GameScreen.MAP.getId());
         }
 
 

@@ -42,7 +42,7 @@ public class TileMapTest extends BasicGame {
 	 * Create our tile map test
 	 */
 	public TileMapTest() {
-		super("Tile Map Test");
+		super("Tile MapView Test");
 	}
 	
 	/**

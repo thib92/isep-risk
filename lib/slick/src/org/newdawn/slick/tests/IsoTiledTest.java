@@ -20,7 +20,7 @@ public class IsoTiledTest extends BasicGame {
 	 * Create a new test
 	 */
 	public IsoTiledTest() {
-		super("Isometric Tiled Map Test");
+		super("Isometric Tiled MapView Test");
 	}
 
 	/*

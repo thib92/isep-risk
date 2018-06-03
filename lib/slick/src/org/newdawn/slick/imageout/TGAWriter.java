@@ -34,13 +34,13 @@ public class TGAWriter implements ImageWriter {
 		// ID Length
 		out.writeByte((byte) 0);
 
-		// Color Map
+		// Color MapView
 		out.writeByte((byte) 0);
 
 		// Image Type
 		out.writeByte((byte) 2);
 
-		// Color Map - Ignored
+		// Color MapView - Ignored
 		out.writeShort(flipEndian((short) 0));
 		out.writeShort(flipEndian((short) 0));
 		out.writeByte((byte) 0);
