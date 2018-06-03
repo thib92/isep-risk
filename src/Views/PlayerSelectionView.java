@@ -22,8 +22,8 @@ public class PlayerSelectionView extends BasicGameState {
     private Color[] colors = { Color.red, Color.blue, Color.yellow, Color.cyan, Color.green, Color.darkGray };
 
 
-    private float[] pointsD = new float[]{1100, 400, 1200, 450, 1100, 500};
-    private float[] pointsG = new float[]{500, 400, 400, 450, 500, 500};
+    private float[] pointsD = new float[]{1000, 400, 1100, 450, 1000, 500};
+    private float[] pointsG = new float[]{300, 400, 200, 450, 300, 500};
 
     private Polygon triangleD = new Polygon(pointsD);
     private Polygon triangleG = new Polygon(pointsG);
@@ -48,14 +48,14 @@ public class PlayerSelectionView extends BasicGameState {
 
             this.currentPlayerCount = Integer.parseInt(playerCountString);
 
-            if (x > 400 && x < 500 && y > 400 && y < 500) {
+            if (x > 200 && x < 300 && y > 400 && y < 500) {
 
                 if (this.currentPlayerCount > 2 ) {
                     this.playerCountString = String.valueOf(Integer.parseInt(playerCountString) - 1);
                 }
 
             }
-            else if(x > 1100 && x < 1200 && y > 400 && y < 500) {
+            else if(x > 1000 && x < 1100 && y > 400 && y < 500) {
 
                 if (this.currentPlayerCount < 6) {
                     this.playerCountString = String.valueOf(Integer.parseInt(this.playerCountString) + 1);
@@ -74,9 +74,11 @@ public class PlayerSelectionView extends BasicGameState {
 
                 String pseudo = "Joueur " + it;
                 Color color = this.colors[it-1];
-                Player player = new Player(pseudo,color);
+                Player player = new Player(pseudo, color);
                 players.add(player);
             }
+
+            System.out.println(players);
 
             // @TODO : Switch to State from StateBasedGame (?)
             //slickGame.getGame().setPlayers(players);

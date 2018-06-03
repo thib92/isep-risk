@@ -18,8 +18,14 @@ public class World {
     private static ArrayList<Territory> territories = new ArrayList<>();
     private static ArrayList<Region> regions = new ArrayList<>();
 
+    private static Phase phase;
+
     public static void initialize(ArrayList<Player> players) throws IOException {
+
+        // PLAYERS
         World.players = players;
+
+        // TERRITORIES
         BufferedReader br = new BufferedReader(new FileReader("config/territories.json"));
         String json = "";
         String line;
@@ -51,6 +57,17 @@ public class World {
 
         World.territories = territories;
 
+        // END TERRITORIES
+
+
+        // PHASE
+        World.phase = new Phase(GamePhase.RECEP_MISSION, World.players.get(0));
+
+    }
+
+    public static Phase getNextPhase() {
+        // @TODO : Implement this method
+        return World.phase;
     }
 
     public static ArrayList<Player> getPlayers() {
@@ -77,4 +94,11 @@ public class World {
         World.regions = regions;
     }
 
+    public static Phase getPhase() {
+        return phase;
+    }
+
+    public static void setPhase(Phase phase) {
+        World.phase = phase;
+    }
 }
