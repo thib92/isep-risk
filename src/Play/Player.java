@@ -4,14 +4,20 @@ import org.newdawn.slick.Color;
 
 public class Player {
 
+    private int id;
     private String pseudo;
     private Color color;
-    private int id;
+    private int reinforcmentCount;
 
     public Player(int id, String pseudo, Color color) {
         this.id = id;
         this.pseudo = pseudo;
         this.color = color;
+        this.reinforcmentCount = 0;
+    }
+
+    public int getId() {
+        return id;
     }
 
     public String getPseudo() {
@@ -30,7 +36,11 @@ public class Player {
         this.color = color;
     }
 
-    public int getId() {
-        return id;
+    public int getReinforcmentCount() {
+        return reinforcmentCount;
+    }
+
+    public void setReinforcmentCount(int reinforcmentCount) {
+        this.reinforcmentCount = reinforcmentCount;
     }
 }

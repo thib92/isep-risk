@@ -20,7 +20,8 @@ public class MenuView extends BasicGameState {
     public void init(GameContainer gameContainer, StateBasedGame slickGame) throws SlickException {
         try {
             this.sound = new Sound("sons/acceuil.ogg");
-            this.sound.loop();
+            // @TODO re-enable sound
+            //this.sound.loop();
             this.bgImage = new Image("images/bg_menu.jpg");
             this.logoImage = new Image("images/logo.png");
         } catch (SlickException e) {

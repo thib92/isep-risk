@@ -1,25 +1,30 @@
 package Troups;
 
+import Geography.Territory;
+import Play.Player;
 import Utils.PowerRange;
 
-abstract class Unit {
+public abstract class Unit {
 
     private int cost;
-
     private PowerRange powerRange;
-
     private int attack;
-
     private int defense;
-
     private int maxMoves;
+    private TroupType troupType;
 
-    Unit(int cost, PowerRange powerRange, int attack, int defense, int maxMoves) {
+    private Player player;
+    private Territory territory;
+
+    Unit(TroupType troupType, int cost, PowerRange powerRange, int attack, int defense, int maxMoves, Player player, Territory territory) {
+        this.troupType = troupType;
         this.cost = cost;
         this.powerRange = powerRange;
         this.attack = attack;
         this.defense = defense;
         this.maxMoves = maxMoves;
+        this.player = player;
+        this.territory = territory;
     }
 
     public int getCost() {
@@ -60,5 +65,9 @@ abstract class Unit {
 
     public void setMaxMoves(int maxMoves) {
         this.maxMoves = maxMoves;
+    }
+
+    public TroupType getTroupType() {
+        return troupType;
     }
 }

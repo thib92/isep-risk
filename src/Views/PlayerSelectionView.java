@@ -83,10 +83,6 @@ public class PlayerSelectionView extends BasicGameState {
                 players.add(player);
             }
 
-            System.out.println(players);
-
-            // @TODO : Switch to State from StateBasedGame (?)
-            //slickGame.getGame().setPlayers(players);
             try {
                 World.initialize(players);
             } catch (IOException e) {
