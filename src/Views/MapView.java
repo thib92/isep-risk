@@ -4,6 +4,8 @@ import Game.GameScreen;
 import Game.SlickGame;
 import Game.World;
 import Graphics.Boundary;
+import Graphics.Position;
+import Play.Player;
 import Utils.GraphicsUtils;
 import org.newdawn.slick.*;
 import org.newdawn.slick.geom.Point;
@@ -59,12 +61,15 @@ public class MapView extends BasicGameState {
             }
         });*/
 
+        graphics.setColor(Color.white);
+
         World.getTerritories().forEach(territory -> {
             if (territory.getBoundary().contains(mouse)) {
-                graphics.setColor(Color.white);
                 GraphicsUtils.drawCenteredText(territory.getName(), graphics, 80);
             }
         });
+
+        GraphicsUtils.drawTexts(World.getPlayers().stream().map(Player::getPseudo).toArray(String[]::new), graphics, Position.BottomLeft, 20);
     }
 
     @Override

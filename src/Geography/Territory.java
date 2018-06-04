@@ -1,6 +1,7 @@
 package Geography;
 
 import Graphics.Boundary;
+import Play.Player;
 
 import java.util.ArrayList;
 
@@ -10,6 +11,7 @@ public class Territory {
     private String name;
     private Boundary boundary;
     private ArrayList<Territory> neighbors;
+    private Player player;
 
     public Territory(int id, String name) {
         this.id = id;

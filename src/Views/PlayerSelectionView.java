@@ -15,7 +15,6 @@ import java.util.ArrayList;
 
 public class PlayerSelectionView extends BasicGameState {
 
-    private String playerCountString = "2";
     private int currentPlayerCount = 2;
 
 
@@ -30,7 +29,6 @@ public class PlayerSelectionView extends BasicGameState {
 
     @Override
     public void init(GameContainer gameContainer, StateBasedGame slickGame) throws SlickException {
-        this.playerCountString = "2";
         this.currentPlayerCount = 2;
     }
 
@@ -46,35 +44,30 @@ public class PlayerSelectionView extends BasicGameState {
             int x = input.getMouseX();
             int y = input.getMouseY();
 
-            this.currentPlayerCount = Integer.parseInt(playerCountString);
-
             if (x > 200 && x < 300 && y > 400 && y < 500) {
 
                 if (this.currentPlayerCount > 2 ) {
-                    this.playerCountString = String.valueOf(Integer.parseInt(playerCountString) - 1);
+                    this.currentPlayerCount--;
                 }
 
             }
             else if(x > 1000 && x < 1100 && y > 400 && y < 500) {
 
                 if (this.currentPlayerCount < 6) {
-                    this.playerCountString = String.valueOf(Integer.parseInt(this.playerCountString) + 1);
-
+                    this.currentPlayerCount++;
                 }
             }
         }
 
         if (input.isKeyPressed(Input.KEY_ENTER)){
 
-            this.currentPlayerCount = Integer.parseInt(this.playerCountString);
-
             ArrayList<Player> players = new ArrayList<>();
 
-            for (int it = 1; it <= this.currentPlayerCount; it++){
+            for (int it = 0; it < this.currentPlayerCount; it++){
 
-                String pseudo = "Joueur " + it;
-                Color color = this.colors[it-1];
-                Player player = new Player(pseudo, color);
+                String pseudo = "Joueur " + String.valueOf(it);
+                Color color = this.colors[it];
+                Player player = new Player(it, pseudo, color);
                 players.add(player);
             }
 
@@ -104,7 +97,7 @@ public class PlayerSelectionView extends BasicGameState {
 
 
         graphics.setColor(Color.black);
-        GraphicsUtils.drawCenteredText(playerCountString, graphics, 433);
+        GraphicsUtils.drawCenteredText(String.valueOf(this.currentPlayerCount), graphics, 433);
 
     }
 

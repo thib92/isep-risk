@@ -22,10 +22,17 @@ public class World {
 
     public static void initialize(ArrayList<Player> players) throws IOException {
 
-        // PLAYERS
+        /* ******* */
+        /* PLAYERS */
+        /* ******* */
+
         World.players = players;
 
-        // TERRITORIES
+
+        /* *********** */
+        /* TERRITORIES */
+        /* *********** */
+
         BufferedReader br = new BufferedReader(new FileReader("config/territories.json"));
         String json = "";
         String line;
@@ -57,11 +64,12 @@ public class World {
 
         World.territories = territories;
 
-        // END TERRITORIES
 
+        /* ***** */
+        /* PHASE */
+        /* ***** */
 
-        // PHASE
-        World.phase = new Phase(GamePhase.RECEP_MISSION, World.players.get(0));
+        World.phase = new Phase(GamePhase.DISPATCH, World.players.get(0));
 
     }
 
@@ -80,12 +88,15 @@ public class World {
                 }
             case DISPATCH:
                 return new Phase(GamePhase.MOV_ATK, World.getPhase().getPlayer());
+            case RENFORTS:
+                return new Phase(GamePhase.MOV_ATK, World.getPhase().getPlayer());
             case MOV_ATK:
                 if(World.getPhase().getPlayer().getId() == World.getPlayers().size()) {
                     return new Phase(GamePhase.RENFORTS, World.getPlayers().get(0));
                 } else {
                     return new Phase(GamePhase.RENFORTS, World.getPlayers().get(World.getPhase().getPlayer().getId()+1));
                 }
+            case FIGHT:
             default:
                 return World.phase;
         }
