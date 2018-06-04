@@ -12,20 +12,33 @@ import org.newdawn.slick.state.StateBasedGame;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class PlayerSelectionView extends BasicGameState {
 
     private int currentPlayerCount = 2;
 
 
-    private Color[] colors = { Color.red, Color.blue, Color.yellow, Color.cyan, Color.green, Color.darkGray };
-
+    private String[] colorRefs = new String[] {
+        "rouge", "bleu", "jaune", "cyan", "vert", "gris"
+    };
+    private HashMap<String, Color> colors;
 
     private float[] pointsD = new float[]{1000, 400, 1100, 450, 1000, 500};
     private float[] pointsG = new float[]{300, 400, 200, 450, 300, 500};
 
     private Polygon triangleD = new Polygon(pointsD);
     private Polygon triangleG = new Polygon(pointsG);
+
+    public PlayerSelectionView() {
+        this.colors = new HashMap<>();
+        this.colors.put("rouge", Color.red);
+        this.colors.put("bleu", Color.blue);
+        this.colors.put("jaune", Color.yellow);
+        this.colors.put("cyan", Color.cyan);
+        this.colors.put("vert", Color.green);
+        this.colors.put("gris", Color.darkGray);
+    }
 
     @Override
     public void init(GameContainer gameContainer, StateBasedGame slickGame) throws SlickException {
@@ -63,11 +76,10 @@ public class PlayerSelectionView extends BasicGameState {
 
             ArrayList<Player> players = new ArrayList<>();
 
-            for (int it = 0; it < this.currentPlayerCount; it++){
-
-                String pseudo = "Joueur " + String.valueOf(it);
-                Color color = this.colors[it];
-                Player player = new Player(it, pseudo, color);
+            for (int j = 0; j < this.currentPlayerCount; j++){
+                Color color = this.colors.get(this.colorRefs[j]);
+                String pseudo = "Joueur " + this.colorRefs[j];
+                Player player = new Player(j, pseudo, color);
                 players.add(player);
             }
 

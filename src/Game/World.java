@@ -1,5 +1,6 @@
 package Game;
 
+import Game.Phase.*;
 import Geography.Region;
 import Geography.Territory;
 import Play.Player;
@@ -69,7 +70,7 @@ public class World {
         /* PHASE */
         /* ***** */
 
-        World.phase = new Phase(GamePhase.DISPATCH, World.players.get(0));
+        World.phase = new DispatchPhase(World.players.get(0));
 
     }
 
@@ -78,23 +79,27 @@ public class World {
      * @return the next phase to be played, containing the phase type and the player playing it
      */
     public static Phase getNextPhase() {
-        switch (World.phase.getPhase()) {
+        switch (World.phase.getPhaseType()) {
             case RECEP_MISSION:
                 // If the last player of queue is playing
-                if(World.getPhase().getPlayer().getId() == World.getPlayers().size()) {
-                    return new Phase(GamePhase.DISPATCH, World.getPlayers().get(0));
+                if(World.getPhase().getPlayer().getId() == World.getPlayers().size()-1) {
+                    return new DispatchPhase(World.getPlayers().get(0));
                 } else {
-                    return new Phase(GamePhase.RECEP_MISSION, World.getPlayers().get(World.getPhase().getPlayer().getId()+1));
+                    return new ReceptMissionPhase(World.getPlayers().get(World.getPhase().getPlayer().getId()+1));
                 }
             case DISPATCH:
-                return new Phase(GamePhase.MOV_ATK, World.getPhase().getPlayer());
-            case RENFORTS:
-                return new Phase(GamePhase.MOV_ATK, World.getPhase().getPlayer());
-            case MOV_ATK:
-                if(World.getPhase().getPlayer().getId() == World.getPlayers().size()) {
-                    return new Phase(GamePhase.RENFORTS, World.getPlayers().get(0));
+                if(World.getPhase().getPlayer().getId() == World.getPlayers().size()-1) {
+                    return new DispatchPhase(World.getPlayers().get(0));
                 } else {
-                    return new Phase(GamePhase.RENFORTS, World.getPlayers().get(World.getPhase().getPlayer().getId()+1));
+                    return new DispatchPhase(World.getPlayers().get(World.getPhase().getPlayer().getId()+1));
+                }
+            case RENFORTS:
+                return new MovAtkPhase(World.getPhase().getPlayer());
+            case MOV_ATK:
+                if(World.getPhase().getPlayer().getId() == World.getPlayers().size()-1) {
+                    return new RenfortsPhase(World.getPlayers().get(0));
+                } else {
+                    return new RenfortsPhase(World.getPlayers().get(World.getPhase().getPlayer().getId()+1));
                 }
             case FIGHT:
             default:
@@ -106,7 +111,7 @@ public class World {
      * Goes to the next phase to be played and returns it
      * @return The next phase to be played
      */
-    public static Phase nextPhase() {
+    public static Phase goToNextPhase() {
         return World.phase = World.getNextPhase();
     }
 

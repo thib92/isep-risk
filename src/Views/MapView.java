@@ -33,6 +33,7 @@ public class MapView extends BasicGameState {
 
     @Override
     public void update(GameContainer gameContainer, StateBasedGame slickGame, int i) throws SlickException {
+        World.getPhase().update(gameContainer, slickGame, i);
     }
 
     @Override
@@ -69,6 +70,11 @@ public class MapView extends BasicGameState {
             }
         });
 
+        String[] topRightHud = new String[] {
+            World.getPhase().getPlayer().getPseudo(),
+            World.getPhase().getPhaseType().getTitle()
+        };
+        GraphicsUtils.drawTexts(topRightHud, graphics, Position.TopRight, 20);
         GraphicsUtils.drawTexts(World.getPlayers().stream().map(Player::getPseudo).toArray(String[]::new), graphics, Position.BottomLeft, 20);
     }
 
