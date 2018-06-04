@@ -1,6 +1,9 @@
 package Play;
 
+import Geography.Territory;
 import org.newdawn.slick.Color;
+
+import java.util.ArrayList;
 
 public class Player {
 
@@ -8,12 +11,14 @@ public class Player {
     private String pseudo;
     private Color color;
     private int reinforcmentCount;
+    private ArrayList<Territory> territories;
 
     public Player(int id, String pseudo, Color color) {
         this.id = id;
         this.pseudo = pseudo;
         this.color = color;
         this.reinforcmentCount = 0;
+        this.territories = new ArrayList<>();
     }
 
     public int getId() {
@@ -42,5 +47,21 @@ public class Player {
 
     public void setReinforcmentCount(int reinforcmentCount) {
         this.reinforcmentCount = reinforcmentCount;
+    }
+
+    public void decrementReinforcmentCount(int count) {
+        this.setReinforcmentCount(this.getReinforcmentCount() - count);
+    }
+
+    public void decrementReinforcmentCount() {
+        this.decrementReinforcmentCount(1);
+    }
+
+    public ArrayList<Territory> getTerritories() {
+        return territories;
+    }
+
+    public void setTerritories(ArrayList<Territory> territories) {
+        this.territories = territories;
     }
 }

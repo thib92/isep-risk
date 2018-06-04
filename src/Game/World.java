@@ -101,6 +101,8 @@ public class World {
 
     }
 
+
+
     /**
      * Computes the next phase to be played, and returns it
      * @return the next phase to be played, containing the phase type and the player playing it
@@ -129,14 +131,14 @@ public class World {
                     else if (nextPlayer.getReinforcmentCount() < player.getReinforcmentCount()) nextPlayer = player;
                 }
 
-                // If no player is found, then every unit has been deployed by every player. Go to RENFORTS phase
-                if(nextPlayer == null) return new RenfortsPhase(World.getPlayers().get(0));
+                // If no player is found, then every unit has been deployed by every player. Go to NEWTROOPS phase
+                if(nextPlayer == null) return new NewTroopsPhase(World.getPlayers().get(0));
                 // Else, return a REINFORCE phase with the next player
                 return new ReinforcmentPhase(nextPlayer);
-            case RENFORTS:
+            case NEWTROOPS:
                 return new MovAtkPhase(World.getPhase().getPlayer());
             case MOV_ATK:
-                return new RenfortsPhase(World.nextPlayerCircle());
+                return new NewTroopsPhase(World.nextPlayerCircle());
             case FIGHT:
             default:
                 return World.phase;
@@ -144,18 +146,26 @@ public class World {
     }
 
     /**
-     * Goes to the next phase to be played and returns it
+     * Goes to the next phase to be played
      */
     public static void goToNextPhase() {
         World.phase = World.getNextPhase();
     }
 
+    /**
+     * Returns the next player in a round circle way, starting from the current phase's player
+     * @return Player
+     */
     private static Player nextPlayerCircle() {
         return World.hasNextPlayer() ?
             World.getPlayers().get(0) :
             World.getPlayers().get(World.getPhase().getPlayer().getId()+1);
     }
 
+    /**
+     * Returns if the player playing the current phase is the last one on the list
+     * @return
+     */
     private static boolean hasNextPlayer() {
         return World.getPhase().getPlayer().getId() == World.getPlayers().size()-1;
     }
