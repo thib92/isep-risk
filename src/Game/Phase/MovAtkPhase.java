@@ -74,7 +74,7 @@ public class MovAtkPhase extends Phase {
                     Unit unit = this.territory1.getUnits().get(j);
                     if (this.selectedUnits.contains(unit)) {
                         this.selectedUnits.remove(unit);
-                    } else {
+                    } else if (this.selectedUnits.size() < this.territory1.getUnits().size() - 1) {
                         this.selectedUnits.add(unit);
                     }
                 }
@@ -139,7 +139,7 @@ public class MovAtkPhase extends Phase {
                 if (childrenChecked == -1) childrenChecked = childChecked;
                 else childrenChecked = Math.min(childrenChecked, childChecked);
             }
-            
+
         }
         if (childrenChecked > 0) {
             return childrenChecked+1;
