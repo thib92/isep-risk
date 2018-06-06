@@ -1,6 +1,7 @@
 package Play;
 
 import Geography.Territory;
+import Troops.Unit;
 import org.newdawn.slick.Color;
 
 import java.util.ArrayList;
@@ -12,6 +13,7 @@ public class Player {
     private Color color;
     private int reinforcmentCount;
     private ArrayList<Territory> territories;
+    private ArrayList<Unit> troops;
 
     public Player(int id, String pseudo, Color color) {
         this.id = id;
@@ -19,6 +21,7 @@ public class Player {
         this.color = color;
         this.reinforcmentCount = 0;
         this.territories = new ArrayList<>();
+        this.troops = new ArrayList<>();
     }
 
     public int getId() {
@@ -63,5 +66,13 @@ public class Player {
 
     public void setTerritories(ArrayList<Territory> territories) {
         this.territories = territories;
+    }
+
+    public ArrayList<Unit> getTroops() {
+        return troops;
+    }
+
+    public void setTroops(ArrayList<Unit> troops) {
+        this.troops = troops;
     }
 }

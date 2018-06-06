@@ -6,7 +6,9 @@ import Graphics.Position;
 import org.newdawn.slick.Color;
 import org.newdawn.slick.Font;
 import org.newdawn.slick.Graphics;
+import org.newdawn.slick.geom.Point;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class GraphicsUtils {
@@ -57,16 +59,6 @@ public class GraphicsUtils {
         graphics.drawString(text, coords[0], coords[1]);
     }
 
-    public static void drawTexts(String[] texts, Graphics graphics, Position position, int margin) {
-        int maxWidth = Arrays.stream(texts).map(text -> graphics.getFont().getWidth(text)).mapToInt(Integer::intValue).max().getAsInt();
-        int height = graphics.getFont().getLineHeight() * texts.length;
-        int[] coords = GraphicsUtils.getCoordsToDraw(maxWidth, height, position, margin);
-
-        for (int i = 0; i < texts.length; i++) {
-            graphics.drawString(texts[i], coords[0], coords[1]+i*graphics.getFont().getLineHeight());
-        }
-    }
-
     public static void drawTextWithBackground(String text, Graphics graphics, float x, float y, Color backgroundColor, int margin) {
         float[] newCoords = GraphicsUtils.getCoordinatesForTextCenteredAt(text, graphics.getFont(), x, y);
         x = newCoords[0];
@@ -80,10 +72,69 @@ public class GraphicsUtils {
         graphics.drawString(text, x, y);
     }
 
+    public static ArrayList<int[]> drawTexts(String[] texts, Graphics graphics, Position position, int margin) {
+        int maxWidth = 0;
+        for (String text : texts) {
+            int textWidth = graphics.getFont().getWidth(text);
+            if (textWidth > maxWidth) {
+                maxWidth = textWidth;
+            }
+        }
+        maxWidth += margin*2;
+        int height = graphics.getFont().getLineHeight() * texts.length;
+        int[] coords = GraphicsUtils.getCoordsToDraw(maxWidth, height, position, margin);
+
+        ArrayList<int[]> textsCoords = new ArrayList<>();
+
+        for (int i = 0; i < texts.length; i++) {
+            textsCoords.add(
+                new int[] {
+                    coords[0],
+                    coords[1]+i*graphics.getFont().getLineHeight(),
+                    graphics.getFont().getWidth(texts[i]),
+                    graphics.getFont().getLineHeight()
+                }
+            );
+            graphics.drawString(texts[i], coords[0], coords[1]+i*graphics.getFont().getLineHeight());
+        }
+
+        return textsCoords;
+    }
+
+    public static ArrayList<int[]> drawTextsWithBackground(String[] texts, Graphics graphics, Position position, Color bgColor, Color fgColor, int margin) {
+        int width = 0;
+        for (String text : texts) {
+            int textWidth = graphics.getFont().getWidth(text);
+            if (textWidth > width) {
+                width = textWidth;
+            }
+        }
+        width += margin*2;
+        int height = graphics.getFont().getLineHeight() * texts.length + margin * 2;
+        int[] coords = GraphicsUtils.getCoordsToDraw(width, height, position, margin);
+
+        Color oldColor = graphics.getColor();
+        graphics.setColor(bgColor);
+        graphics.fillRect(coords[0]-margin, coords[1], width+margin, height+margin);
+        graphics.setColor(fgColor);
+        ArrayList<int[]> textsCoords = GraphicsUtils.drawTexts(texts, graphics, position, margin);
+        graphics.setColor(oldColor);
+        return textsCoords;
+
+    }
+
     private static float[] getCoordinatesForTextCenteredAt(String text, Font font, float x, float y) {
         float width = font.getWidth(text);
         float height = font.getHeight(text);
         return new float[] { x-width/2, y-height/2 };
+    }
+
+    public static boolean inRectangle(int x, int y, int width, int height, Point point) {
+        return (point.getX() > x && point.getX() < x+width && point.getY() > y && point.getY() < y+height);
+    }
+
+    public static boolean inRectangle(int[] coords, Point point) {
+        return GraphicsUtils.inRectangle(coords[0], coords[1], coords[2], coords[3], point);
     }
 
 }

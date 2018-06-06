@@ -1,9 +1,10 @@
 package Views;
 
 import Game.GameScreen;
+import Game.Phase.MovAtkPhase;
 import Game.SlickGame;
 import Game.World;
-import Graphics.Boundary;
+import Geography.Territory;
 import Graphics.Position;
 import Play.Player;
 import Utils.GraphicsUtils;
@@ -11,6 +12,8 @@ import org.newdawn.slick.*;
 import org.newdawn.slick.geom.Point;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
+
+import java.util.ArrayList;
 
 public class MapView extends BasicGameState {
 
@@ -42,19 +45,10 @@ public class MapView extends BasicGameState {
         this.fond.draw(0, 0, SlickGame.WIDTH, SlickGame.HEIGHT);
         graphics.drawImage(this.map, 0, 0);
 
-        Input input = gameContainer.getInput();
-        int mouseX = input.getMouseX();
-        int mouseY = input.getMouseY();
-        graphics.setColor(Color.black);
-        GraphicsUtils.drawCenteredText(String.valueOf(mouseX), graphics, 20);
-        GraphicsUtils.drawCenteredText(String.valueOf(mouseY), graphics, 50);
-
-        Point mouse = new Point(input.getMouseX(), input.getMouseY());
-
         World.getTerritories().forEach(territory -> {
             if (territory.getBoundary() != null && territory.getBoundary().getPointCount() != 0) {
-                graphics.setColor(Color.red);
-                graphics.draw(territory.getBoundary());
+                //graphics.setColor(Color.white);
+                //graphics.draw(territory.getBoundary());
                 territory.drawTroops(graphics);
             }
         });
@@ -63,21 +57,9 @@ public class MapView extends BasicGameState {
         /* *** */
         /* HUD */
         /* *** */
-        graphics.setColor(Color.white);
 
-        World.getTerritories().forEach(territory -> {
-            if (territory.getBoundary().contains(mouse)) {
-                GraphicsUtils.drawCenteredText(territory.getName(), graphics, 80);
-            }
-        });
+        World.getPhase().render(gameContainer, slickGame, graphics);
 
-        String[] topRightHud = new String[] {
-            World.getPhase().getPlayer().getPseudo(),
-            World.getPhase().getPhaseType().getTitle()
-        };
-        GraphicsUtils.drawTexts(topRightHud, graphics, Position.TopRight, 20);
-
-        GraphicsUtils.drawTexts(World.getPlayers().stream().map(player -> player.getPseudo() + " - " + player.getReinforcmentCount()).toArray(String[]::new), graphics, Position.BottomLeft, 20);
     }
 
     @Override

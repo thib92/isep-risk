@@ -2,7 +2,7 @@ package Geography;
 
 import Graphics.Boundary;
 import Play.Player;
-import Troups.*;
+import Troops.*;
 
 import Utils.GraphicsUtils;
 import org.newdawn.slick.Color;

@@ -7,6 +7,7 @@ import Play.Player;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
+import org.newdawn.slick.Input;
 import org.newdawn.slick.geom.Point;
 
 import java.io.BufferedReader;
@@ -188,6 +189,14 @@ public class World {
             }
         }
         return true;
+    }
+
+    public static Territory getTerritoryCliked(Input input) {
+        Point mouse = new Point(input.getMouseX(), input.getMouseY());
+        if (input.isMousePressed(Input.MOUSE_LEFT_BUTTON)) {
+            return World.getTerritoryAt(mouse);
+        }
+        return null;
     }
 
     public static ArrayList<Player> getPlayers() {

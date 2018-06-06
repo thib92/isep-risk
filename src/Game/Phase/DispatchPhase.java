@@ -3,9 +3,9 @@ package Game.Phase;
 import Game.World;
 import Geography.Territory;
 import Play.Player;
-import Troups.Soldier;
-import Troups.Unit;
+import Troops.Soldier;
 import org.newdawn.slick.GameContainer;
+import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Input;
 import org.newdawn.slick.geom.Point;
 import org.newdawn.slick.state.StateBasedGame;
@@ -20,15 +20,16 @@ public class DispatchPhase extends Phase {
     public void update(GameContainer gameContainer, StateBasedGame slickGame, int i) {
 
         Input input = gameContainer.getInput();
-        Point mouse = new Point(input.getMouseX(), input.getMouseY());
-
         if (input.isMousePressed(Input.MOUSE_LEFT_BUTTON)) {
+            Point mouse = new Point(input.getMouseX(), input.getMouseY());
             Territory territory = World.getTerritoryAt(mouse);
             if (territory != null) {
                 if(territory.getUnits().size() == 0) {
                     territory.setPlayer(this.getPlayer());
-                    territory.getUnits().add(new Soldier(this.getPlayer(), territory));
+                    Soldier unit = new Soldier(this.getPlayer(), territory);
+                    territory.getUnits().add(unit);
                     this.getPlayer().getTerritories().add(territory);
+                    this.getPlayer().getTroops().add(unit);
                     this.getPlayer().decrementReinforcmentCount();
                     World.goToNextPhase();
                 } else {
@@ -36,5 +37,10 @@ public class DispatchPhase extends Phase {
                 }
             }
         }
+    }
+
+    @Override
+    public void render(GameContainer gameContainer, StateBasedGame slickGame, Graphics graphics) {
+        super.render(gameContainer, slickGame, graphics);
     }
 }

@@ -1,4 +1,4 @@
-package Troups;
+package Troops;
 
 import Geography.Territory;
 import Play.Player;
@@ -11,12 +11,13 @@ public abstract class Unit {
     private int attack;
     private int defense;
     private int maxMoves;
-    private TroupType troupType;
+    private int moves;
+    private TroopType troupType;
 
     private Player player;
     private Territory territory;
 
-    Unit(TroupType troupType, int cost, PowerRange powerRange, int attack, int defense, int maxMoves, Player player, Territory territory) {
+    Unit(TroopType troupType, int cost, PowerRange powerRange, int attack, int defense, int maxMoves, Player player, Territory territory) {
         this.troupType = troupType;
         this.cost = cost;
         this.powerRange = powerRange;
@@ -63,11 +64,28 @@ public abstract class Unit {
         return maxMoves;
     }
 
-    public void setMaxMoves(int maxMoves) {
-        this.maxMoves = maxMoves;
+    public int getMoves() {
+        return moves;
     }
 
-    public TroupType getTroupType() {
+    public void setMoves(int moves) {
+        this.moves = moves;
+    }
+
+    public void resetMoves() {
+        this.moves = this.maxMoves;
+    }
+
+    public Player getPlayer() {
+        return player;
+    }
+
+    public TroopType getTroupType() {
         return troupType;
     }
+
+    public Territory getTerritory() {
+        return territory;
+    }
+
 }
