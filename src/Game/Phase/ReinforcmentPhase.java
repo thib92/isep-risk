@@ -28,7 +28,6 @@ public class ReinforcmentPhase extends Phase {
                 if(territory.getPlayer() == this.getPlayer()) {
                     Soldier troop = new Soldier(this.getPlayer(), territory);
                     territory.getUnits().add(troop);
-                    this.getPlayer().getTroops().add(troop);
                     this.getPlayer().decrementReinforcmentCount();
                     World.goToNextPhase();
                 } else {

@@ -34,7 +34,6 @@ public class NewTroopsPhase extends Phase {
             if (territory != null && territory.getPlayer() == this.getPlayer()) {
                 Soldier troop = new Soldier(this.getPlayer(), territory);
                 territory.getUnits().add(troop);
-                this.getPlayer().getTroops().add(troop);
                 this.getPlayer().decrementReinforcmentCount();
                 if(this.getPlayer().getReinforcmentCount() <= 0) {
                     World.goToNextPhase();

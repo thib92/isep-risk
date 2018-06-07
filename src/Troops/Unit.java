@@ -4,7 +4,7 @@ import Geography.Territory;
 import Play.Player;
 import Utils.PowerRange;
 
-public abstract class Unit {
+public abstract class Unit implements Comparable<Unit> {
 
     private int cost;
     private PowerRange powerRange;

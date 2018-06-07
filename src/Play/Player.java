@@ -68,10 +68,6 @@ public class Player {
         this.territories = territories;
     }
 
-    public ArrayList<Unit> getTroops() {
-        return troops;
-    }
-
     public void setTroops(ArrayList<Unit> troops) {
         this.troops = troops;
     }

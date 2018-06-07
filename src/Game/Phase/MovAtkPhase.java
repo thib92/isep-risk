@@ -5,6 +5,7 @@ import Graphics.Position;
 import Geography.Territory;
 import Play.Player;
 import Troops.Unit;
+import Troops.UnitWithScore;
 import Utils.GraphicsUtils;
 import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
@@ -14,6 +15,7 @@ import org.newdawn.slick.geom.Point;
 import org.newdawn.slick.state.StateBasedGame;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class MovAtkPhase extends Phase {
 
@@ -21,17 +23,17 @@ public class MovAtkPhase extends Phase {
     private Territory territory2;
     private ArrayList<int[]> textsCoords;
     private ArrayList<Unit> selectedUnits;
-    private int[] movAtkButton;
 
     public MovAtkPhase(Player player) {
         super(GamePhase.MOV_ATK, player);
         this.territory1 = null;
         this.territory2 = null;
         this.textsCoords = null;
-        this.movAtkButton = null;
         this.selectedUnits = new ArrayList<>();
-        for (Unit unit : player.getTroops()) {
-            unit.resetMoves();
+        for (Territory territory : player.getTerritories()) {
+            for (Unit unit : territory.getUnits()) {
+                unit.resetMoves();
+            }
         }
     }
 
@@ -87,8 +89,8 @@ public class MovAtkPhase extends Phase {
             } else {
                 // Player is trying to attack
                 // Check that the two countries are neighbors
-                if (territory1.getNeighbors().contains(territory2)) {
-
+                if (territory1.getNeighbors().contains(this.territory2)) {
+                    this.attack();
                 }
             }
         }
@@ -146,6 +148,68 @@ public class MovAtkPhase extends Phase {
         } else {
             return -1;
         }
+    }
+
+    private void attack() {
+        if (
+            this.territory1 == null ||
+            this.territory2 == null ||
+            !this.territory1.getNeighbors().contains(this.territory2) ||
+            this.selectedUnits.size() >= this.territory1.getUnits().size() ||
+            this.selectedUnits.size() > 3
+        ) return;
+
+        Unit[] attackers = this.selectedUnits.toArray(new Unit[0]);
+        Unit[] defenders = this.territory2.getTroopsToDefend();
+
+        UnitWithScore[] attackersScores = new UnitWithScore[attackers.length];
+        for (int i = 0; i < attackers.length; i++) {
+            Unit attacker = attackers[i];
+            attackersScores[i] = new UnitWithScore(attacker);
+        }
+
+        UnitWithScore[] defendersScores = new UnitWithScore[defenders.length];
+        for (int i = 0; i < defenders.length; i++) {
+            Unit defender = defenders[i];
+            defendersScores[i] = new UnitWithScore(defender);
+        }
+
+        Arrays.sort(attackersScores);
+        Arrays.sort(defendersScores);
+
+        System.out.println("Attackers scores");
+        for (UnitWithScore attackerScore : attackersScores) {
+            System.out.println(attackerScore.toString());
+        }
+        System.out.println("Defenders scores");
+        for (UnitWithScore defenderScore : defendersScores) {
+            System.out.println(defenderScore.toString());
+        }
+
+        for (int i = 0; i < Math.min(attackersScores.length, defendersScores.length); i++) {
+            // If the attacker wins, kill the
+            if (attackersScores[i].getScore() > defendersScores[i].getScore()) {
+                this.territory2.getUnits().remove(defendersScores[i].getUnit());
+            } else {
+                this.territory1.getUnits().remove(attackersScores[i].getUnit());
+            }
+        }
+
+        // Once the battle is done, check if the defending country has any troops left
+        if (this.territory2.getUnits().size() == 0) {
+            // If so, move attacking troops to it and re-assign the country's owner
+            for (Unit attacker : attackers) {
+                attacker.setMoves(attacker.getMoves()-1);
+            }
+            this.territory1.getUnits().removeAll(Arrays.asList(attackers));
+            this.territory2.getUnits().addAll(Arrays.asList(attackers));
+            this.territory2.setPlayer(this.getPlayer());
+            this.territory1 = null;
+            this.territory2 = null;
+        }
+
+        this.selectedUnits = new ArrayList<>();
+
     }
 
     @Override

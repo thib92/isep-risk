@@ -1,17 +1,19 @@
 package Utils;
 
+import java.util.concurrent.ThreadLocalRandom;
+
 public class PowerRange {
 
     private int lower;
     private int upper;
 
-    public PowerRange(int upper, int lower) {
+    public PowerRange(int lower, int upper) {
         this.lower = lower;
         this.upper = upper;
     }
 
     public int generatePower() {
-        return (int)(Math.random() * (this.getUpper() - this.getLower()));
+        return ThreadLocalRandom.current().nextInt(this.lower, this.upper+1);
     }
 
     public int getLower() {

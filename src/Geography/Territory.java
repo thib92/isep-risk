@@ -10,6 +10,7 @@ import org.newdawn.slick.Graphics;
 import org.newdawn.slick.geom.Point;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Territory {
 
@@ -69,6 +70,13 @@ public class Territory {
         String text = String.format("S%dH%dC%d", soldiers, horsmen, cannons);
         graphics.setColor(this.getPlayer().getColor());
         GraphicsUtils.drawTextWithBackground(text, graphics, this.getCenter().getX(), this.getCenter().getY(), Color.black, 10);
+    }
+
+    public Unit[] getTroopsToDefend() {
+        Unit[] defenders = this.units.toArray(new Unit[0]);
+        Arrays.sort(defenders);
+        // Return the 2 best defenders, but only 1 if only 1 is available (else, defenders[1] == null)
+        return Arrays.copyOfRange(defenders, 0, Math.min(2, defenders.length));
     }
 
     public String getName() {

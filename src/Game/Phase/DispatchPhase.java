@@ -29,7 +29,6 @@ public class DispatchPhase extends Phase {
                     Soldier unit = new Soldier(this.getPlayer(), territory);
                     territory.getUnits().add(unit);
                     this.getPlayer().getTerritories().add(territory);
-                    this.getPlayer().getTroops().add(unit);
                     this.getPlayer().decrementReinforcmentCount();
                     World.goToNextPhase();
                 } else {
