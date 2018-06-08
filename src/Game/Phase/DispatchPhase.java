@@ -10,6 +10,10 @@ import org.newdawn.slick.Input;
 import org.newdawn.slick.geom.Point;
 import org.newdawn.slick.state.StateBasedGame;
 
+/**
+ * This phase contains a single "dispatch" action
+ * Which is a player putting a single Soldier in an empty territory to invade it
+ */
 public class DispatchPhase extends Phase {
 
     public DispatchPhase(Player player) {
@@ -18,6 +22,11 @@ public class DispatchPhase extends Phase {
 
     @Override
     public void update(GameContainer gameContainer, StateBasedGame slickGame, int i) {
+
+        // Handle a click of the player on a country
+        // If a country is clicked, check that it is empty
+        // If it is, deploy a troop to it, assign it to the current player, decrement the player's reinforcment count
+        // And go to the next phase
 
         Input input = gameContainer.getInput();
         if (input.isMousePressed(Input.MOUSE_LEFT_BUTTON)) {

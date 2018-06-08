@@ -59,13 +59,13 @@ public class World {
         /* *********** */
 
         BufferedReader br = new BufferedReader(new FileReader("config/territories.json"));
-        String json = "";
+        StringBuilder json = new StringBuilder();
         String line;
         while ((line = br.readLine()) != null) {
-            json += line;
+            json.append(line);
         }
 
-        JSONArray allTerritoriesJson = new JSONArray(json);
+        JSONArray allTerritoriesJson = new JSONArray(json.toString());
         ArrayList<Territory> territories = new ArrayList<>();
 
         for (int i = 0; i < allTerritoriesJson.length(); i++) {
@@ -140,7 +140,6 @@ public class World {
                 return new MovAtkPhase(World.getPhase().getPlayer());
             case MOV_ATK:
                 return new NewTroopsPhase(World.nextPlayerCircle());
-            case FIGHT:
             default:
                 return World.phase;
         }
@@ -148,9 +147,23 @@ public class World {
 
     /**
      * Goes to the next phase to be played
+     * First check if a player has won
+     * Else, just go to the next phase
      */
     public static void goToNextPhase() {
-        World.phase = World.getNextPhase();
+        boolean winner = true;
+        Player player = World.territories.get(0).getPlayer();
+        for (Territory territory : World.territories) {
+            if (territory.getPlayer() != player) {
+                winner = false;
+                break;
+            };
+        }
+        if (winner) {
+            System.out.println("Winner is player " + player.getColor());
+        } else {
+            World.phase = World.getNextPhase();
+        }
     }
 
     /**

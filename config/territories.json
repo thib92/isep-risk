@@ -30,7 +30,7 @@
   {
     "id": 2,
     "name": "Europe du Nord",
-    "neighbors": [3, 4, 0, 1],
+    "neighbors": [3, 4, 5, 0, 1],
     "boundaries": [
       [589, 316],
       [621, 257],
@@ -257,7 +257,7 @@
   {
     "id": 17,
     "name": "Kamschatka",
-    "neighbors": [16, 14, 13, 33],
+    "neighbors": [16, 18, 14, 13, 33],
     "boundaries": [
       [1100, 90],
       [1215, 110],
